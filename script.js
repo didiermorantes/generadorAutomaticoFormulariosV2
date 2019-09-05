@@ -732,3 +732,48 @@ var datoLeido=0;
     
     
      }
+
+
+     function obtenerDatosBasicosSinAxios(){
+
+let http = new XMLHttpRequest();
+http.open("POST", 'http://tudireccion.com', true);
+http.setRequestHeader('Content-type', 'text/html; charset=UTF-8');
+http.onreadystatechange = function() {
+    if (http.readyState == 4) {
+        if (http.status == 200)
+            OkCallback(JSON.parse(http.responseText));
+        else
+            ErrorCallback(http);
+    }
+};
+http.onerror = OkCallback;
+http.send(text);
+     }
+
+
+     function obtenerCredenciales(){
+
+        //parametros de autenticacion
+        var params = {
+            "Username":"andressvx", 
+            "Password":"Iconoi.2019"
+          }
+
+        let http = new XMLHttpRequest();
+        http.open("POST", 'http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate', true);
+        //cabeceras de la petición
+        http.setRequestHeader('Content-type', 'text/html; charset=UTF-8');
+        http.setRequestHeader('Host', '10.10.100.13');
+        http.onreadystatechange = function() {
+            if (http.readyState == 4) {
+                if (http.status == 200)
+                    OkCallback(JSON.parse(http.responseText));
+                else
+                    ErrorCallback(http);
+            }
+        };
+        http.onerror = OkCallback;
+        http.send(JSON.stringify(params));
+
+     }
