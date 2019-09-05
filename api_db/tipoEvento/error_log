@@ -1,0 +1,34 @@
+[20-Aug-2019 16:16:20 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php:54
+Stack trace:
+#0 /home/vitalsal/public_html/services/api_db/tipoEvento/leer.php(21): TipoEvento->leer()
+#1 {main}
+  thrown in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php on line 54
+[20-Aug-2019 16:42:16 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php:54
+Stack trace:
+#0 /home/vitalsal/public_html/services/api_db/tipoEvento/leer.php(21): TipoEvento->leer()
+#1 {main}
+  thrown in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php on line 54
+[20-Aug-2019 16:42:16 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php:54
+Stack trace:
+#0 /home/vitalsal/public_html/services/api_db/tipoEvento/leer.php(21): TipoEvento->leer()
+#1 {main}
+  thrown in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php on line 54
+[28-Aug-2019 14:14:56 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php:54
+Stack trace:
+#0 /home/vitalsal/public_html/services/api_db/tipoEvento/leer.php(21): TipoEvento->leer()
+#1 {main}
+  thrown in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php on line 54
+[28-Aug-2019 14:22:57 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php:54
+Stack trace:
+#0 /home/vitalsal/public_html/services/api_db/tipoEvento/leer.php(21): TipoEvento->leer()
+#1 {main}
+  thrown in /home/vitalsal/public_html/services/api_db/objetos/tipoEvento.php on line 54
+[28-Aug-2019 14:43:34 America/Bogota] PHP Notice:  Use of undefined constant console - assumed 'console' in /home/vitalsal/public_html/services/api_db/config/database.php on line 30
+[28-Aug-2019 14:43:34 America/Bogota] PHP Warning:  log() expects parameter 1 to be float, string given in /home/vitalsal/public_html/services/api_db/config/database.php on line 30
+[28-Aug-2019 14:43:45 America/Bogota] PHP Notice:  Use of undefined constant console - assumed 'console' in /home/vitalsal/public_html/services/api_db/config/database.php on line 30
+[28-Aug-2019 14:43:45 America/Bogota] PHP Warning:  log() expects parameter 1 to be float, string given in /home/vitalsal/public_html/services/api_db/config/database.php on line 30
+[29-Aug-2019 11:58:14 America/Bogota] PHP Fatal error:  Cannot redeclare TipoEvento::$idTablaEvento in /home/vitalsal/public_html/services/api_db/objetos/tipoEventoLista.php on line 13
+[29-Aug-2019 12:17:23 America/Bogota] PHP Fatal error:  Constant expression contains invalid operations in /home/vitalsal/public_html/services/api_db/objetos/tipoEventoLista.php on line 8
+[29-Aug-2019 12:20:12 America/Bogota] PHP Fatal error:  Constant expression contains invalid operations in /home/vitalsal/public_html/services/api_db/objetos/tipoEventoLista.php on line 8
+[29-Aug-2019 12:23:07 America/Bogota] PHP Fatal error:  Constant expression contains invalid operations in /home/vitalsal/public_html/services/api_db/objetos/tipoEventoLista.php on line 8
+[29-Aug-2019 12:23:35 America/Bogota] PHP Fatal error:  Constant expression contains invalid operations in /home/vitalsal/public_html/services/api_db/objetos/tipoEventoLista.php on line 8
