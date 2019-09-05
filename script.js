@@ -773,7 +773,10 @@ http.send(text);
                     alert(http);
             }
         };
-        http.onerror = OkCallback;
+        http.onerror = function () {
+            console.log("Un error ha ocurrido en la transacción");
+            alert("Un error ha ocurrido en la transacción");
+          };
         http.send(JSON.stringify(params));
 
      }
