@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="./script.js"></script>
+    <!-- BOOTSTRAP-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <form id="myForm" action="" method="POST">
+            <label for="dato">Ingrese Cantidad de Cajas a Crear:</label>
+            <input type="number" name="dato" id="dato">
+            <input type="button" onclick="generaCajas()" value="enviar">
+ 
+<br/>
+    <button type="button" class="btn btn-info" onclick="UserAction()">Contenido JSON de archivo</button>
+    <button type="button" class="btn btn-warning" onclick="leerJson()">Obtener JSON  de archivo para Generacion</button>
+    <button type="button" class="btn btn-danger" onclick="leerBD()">Obtener JSON de base de datos para Generacion</button>
+    <br/><hr/><br/>
+
+    <select id="miListaEventos" name="miListaEventos" onchange="leerBDLista()">
+        <option value="0"></option>
+        <option value="1">tabla 1</option>
+        <option value="2">tabla 2</option>
+        <option value="3">tabla 3</option>
+        <option value="4">tabla 4</option>
+        <option value="5">tabla 5</option>
+        <option value="6">tabla 6</option>
+        <option value="7">tabla 7</option>
+        <option value="8">tabla 8</option>
+        <option value="9">tabla 9</option>
+        <option value="10">tabla 10</option>
+        <option value="11">tabla 11</option>
+        <option value="12">tabla 12</option>
+
+      </select>
+      
+      
+      <input type="text" name="datoCaja" id="datoCaja">
+      <input type="button" onclick="leerBDCaja()" value="procesar">
+
+      <p id="demo"></p>
+
+    </form>
+
+</body>
+</html>

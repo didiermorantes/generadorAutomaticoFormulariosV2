@@ -1,0 +1,22 @@
+1.Generador de Cajas de Datos (LOGRADO)
+	a.El sistema pide n�mero de cajas a generar
+	b.El sistema las organiza autom�ticamente de acuerdo a como se van pintando (flexbox)
+
+
+
+2. Pedir informaci�n en formato JSON. (LOGRADO)
+	a. Un servicio debe proporcionar la informaci�n de los formularios que se debe mostrar.
+	b. Esta informaci�n debe venir en formato JSON
+	c. Esta informaci�n contiene la estructura de cada campo del formulario. (por lo menos el tipo de dato)
+	d. Crear un servicio que entregue un JSON con datos básicos de estructura de formulario
+
+3. Incrustar validación JavaScript en los campos generados (LOGRADO)
+	a. Verificar posibilidad de incrustar javascript en los campos generados	
+
+
+4. Realizar una base de datos pequeña que contenga la estructura a generar (LOGRADO)
+	a. Se debe exponer la funcionalidad de la base de datos mediante servicio
+	b. Se debe poder consumir un servicio que permita generar la consulta de la estructura, y así poder pintar el formulario
+
+5. Generar formulario a partir de la estructura de la base de datos actual tablaTipoEvento (La base de datos de sivigila 4.0)
+	4. Debe poder leerse la información del campo tipo JSON, y de allí generarse el formulario correspondiente  (XAMPP CONFIGURADO PARA TRABAJAR CON PUERTO 8181)
