@@ -788,6 +788,7 @@ http.send(text);
             "Username":"andressvx", 
             "Password":"Iconoi.2019"
           }
+          /*
         const userAction = async () => {
             const response = await fetch('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate', {
               method: 'POST',
@@ -803,5 +804,27 @@ http.send(text);
             alert(JSON.parse(myJson));
           }
 
+*/
+          
+     fetch('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate')
+     .then(function(response6) {
+         //devuelve un objeto promise conteniendo la respuesta, el objeto response
+             //response es una respuesta http y no el archivo json, por tanto, usamos el método json() para extraer el contenido
+         return response6.json();
+     })
+     .then(function(myJson6) {
+       
+         //contamos la cantidad de elementos que tiene el json en el objeto "registros" y lo guardamos en datoLeido
+         //si no especificamos el objeto, el json solamente tiene un elemento, es decir, solamente tiene el objeto registros
+       //datoLeido=Object.keys(myJson2.personas).length ;  --DESCOMENTARIAR SI SE USA EL JSON PERSONAS
+    
+            //contamos la cantidad de elementos que tiene el json en el objeto "registros" y lo guardamos en datoLeido
+         //si no especificamos el objeto, el json solamente tiene un elemento, es decir, solamente tiene el objeto registros
+       datoLeido6=Object.keys(myJson6).length; //est
+       alert(datoLeido6);
+
+
+    });
+     
 
      }
