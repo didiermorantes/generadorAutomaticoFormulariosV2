@@ -761,7 +761,7 @@ http.send(text);
           }
 
         let http = new XMLHttpRequest();
-        http.open("POST", 'https://10.10.100.13/apiSivigilaCRUD/api/login/authenticate', true);
+        http.open("POST", 'http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate', true);
         //cabeceras de la petición
         http.setRequestHeader('Access-Control-Allow-Origin','*');//permitimos origenes cruzados
         http.setRequestHeader('Content-type', 'application/json');
@@ -771,7 +771,7 @@ http.send(text);
                 if (http.status == 200)
                     alert(JSON.parse(http.responseText));
                 else
-                    alert(http);
+                    alert("no hubo status server 200 Ok");
             }
         };
         http.onerror = function () {
@@ -779,5 +779,29 @@ http.send(text);
             alert("Un error ha ocurrido en la transacción");
           };
         http.send(JSON.stringify(params));
+
+     }
+
+     function obtenerCredencialesFetch(){
+
+        var myBody = {
+            "Username":"andressvx", 
+            "Password":"Iconoi.2019"
+          }
+        const userAction = async () => {
+            const response = await fetch('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate', {
+              method: 'POST',
+              body: myBody, // string or object
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            });
+            const myJson = await response.json(); //extract JSON from the http response
+            
+            // do something with myJson
+            console.log(myJson);
+            alert(JSON.parse(myJson));
+          }
+
 
      }
