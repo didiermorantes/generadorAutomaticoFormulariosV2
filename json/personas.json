@@ -1,0 +1,9 @@
+{
+        "personas":[
+            {"nombre":"Didier", "nickname":"D_Scorpius"},
+            {"nombre":"Alejandro", "nickname":"Alucard"},
+            {"nombre":"Edison", "nickname":"Morpheusco"},
+            {"nombre":"Brayan", "nickname":"Pony"}
+        ]
+    
+}

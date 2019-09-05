@@ -1,0 +1,29 @@
+{
+  "campos":[
+    {"nombreCampo":"nombreEvento","tipoCampo":"text"},
+    {"nombreCampo":"codigoEvento","tipoCampo":"number"},
+    {"nombreCampo":"fechaEvento","tipoCampo":"date"},
+    {"nombreCampo":"nombreUsuario","tipoCampo":"text"},
+    {"nombreCampo":"apellidoUsuario","tipoCampo":"text"},
+    {"nombreCampo":"edadUsuario","tipoCampo":"number"},
+    {"nombreCampo":"fechaNacimiento","tipoCampo":"text"},
+    {"nombreCampo":"cantidadTipoNumber","tipoCampo":"number"},
+    {"nombreCampo":"cantidadTipoText","tipoCampo":"text"},
+    {"nombreCampo":"cantidadTipoDate","tipoCampo":"date"}
+  ],
+  "funciones":[
+    {"nombreFuncion":"validaNombreEvento()","codigoFuncion":" miNombreEvento = document.getElementById('nombreEvento').value;if (miNombreEvento.length == 0 || miNombreEvento =='' || miNombreEvento==null || /^\\s+$/.test(miNombreEvento)) {alert('Diligencie Datos.No se pueden dejar campos vacios en nombreEvento.');document.getElementById('nombreEvento').focus();document.getElementById('nombreEvento').value='Diligencie datos';}"},
+    {"nombreFuncion":"validaCodigoEvento()","codigoFuncion":" miCodigoEvento=document.getElementById('codigoEvento').value;if(miCodigoEvento.length == 0 || miCodigoEvento =='' || miCodigoEvento==null || /^\\s+$/.test(miCodigoEvento)){alert('Diligencie Datos.No se pueden dejar campos vacios ni escribir letras en codigoEvento.');document.getElementById('codigoEvento').focus();document.getElementById('codigoEvento').value=99999999;}else{if(!/^([0-9])*$/.test(miCodigoEvento)){alert('Solamente se permiten números en codigoEvento'); document.getElementById('codigoEvento').focus(); }}"},
+    {"nombreFuncion":"validaFechaEvento()","codigoFuncion":" miFechaEvento=document.getElementById('fechaEvento').value;if( miFechaEvento =='' || miFechaEvento==null){alert('Diligencie Datos.No se pueden dejar campos vacios en fechaEvento.');document.getElementById('fechaEvento').focus();document.getElementById('fechaEvento').value='2010-12-31';}"},
+    {"nombreFuncion":"validaNombreUsuario()","codigoFuncion":"miNombreUsuario = document.getElementById('nombreUsuario').value;if (miNombreUsuario.length == 0 || miNombreUsuario =='' || miNombreUsuario==null || /^\\s+$/.test(miNombreUsuario)) {alert('Diligencie Datos.No se pueden dejar campos vacios en nombreUsuario.');document.getElementById('nombreUsuario').focus();document.getElementById('nombreUsuario').value='Diligencie datos';}"},
+    {"nombreFuncion":"validaApellidoUsuario()","codigoFuncion":"miApellidoUsuario = document.getElementById('apellidoUsuario').value;if (miApellidoUsuario.length == 0 || miApellidoUsuario =='' || miApellidoUsuario==null || /^\\s+$/.test(miApellidoUsuario)) {alert('Diligencie Datos.No se pueden dejar campos vacios en apellidoUsuario.');document.getElementById('apellidoUsuario').focus();document.getElementById('apellidoUsuario').value='Diligencie datos';}"},
+    {"nombreFuncion":"validaEdadUsuario()","codigoFuncion":"miEdadUsuario=document.getElementById('edadUsuario').value;if(miEdadUsuario.length == 0 || miEdadUsuario =='' || miEdadUsuario==null || /^\\s+$/.test(miEdadUsuario)){alert('Diligencie Datos.No se pueden dejar campos vacios ni escribir letras en edadUsuario.');document.getElementById('edadUsuario').focus();document.getElementById('edadUsuario').value=99999999;}else{if(!/^([0-9])*$/.test(miEdadUsuario)){alert('Solamente se permiten números en edadUsuario'); document.getElementById('edadUsuario').focus(); }}"},
+    {"nombreFuncion":"validaFechaNacimiento()","codigoFuncion":"miFechaNacimiento=document.getElementById('fechaNacimiento').value;if( miFechaNacimiento =='' || miFechaNacimiento==null){alert('Diligencie Datos.No se pueden dejar campos vacios en fechaNacimiento.');document.getElementById('fechaNacimiento').focus();document.getElementById('fechaNacimiento').value='2010-12-31';}"},
+    {"nombreFuncion":"validaCantidadTipoNumber()","codigoFuncion":"miCantidadTipoNumber=document.getElementById('cantidadTipoNumber').value;if(cantidadTipoNumber.length == 0 || miCantidadTipoNumber =='' || miCantidadTipoNumber==null || /^\\s+$/.test(miCantidadTipoNumber)){alert('Diligencie Datos.No se pueden dejar campos vacios ni escribir letras en cantidadTipoNumber.');document.getElementById('cantidadTipoNumber').focus();document.getElementById('cantidadTipoNumber').value=99999999;}else{if(!/^([0-9])*$/.test(cantidadTipoNumber)){alert('Solamente se permiten números en cantidadTipoNumber'); document.getElementById('cantidadTipoNumber').focus(); }}"},
+    {"nombreFuncion":"validaCantidadTipoText()","codigoFuncion":"miCantidadTipoText = document.getElementById('cantidadTipoText').value;if (miCantidadTipoText.length == 0 || miCantidadTipoText =='' || miCantidadTipoText==null || /^\\s+$/.test(miCantidadTipoText)) {alert('Diligencie Datos.No se pueden dejar campos vacios en cantidadTipoText.');document.getElementById('cantidadTipoText').focus();document.getElementById('cantidadTipoText').value='Diligencie datos';}"},
+    {"nombreFuncion":"validaCantidadTipoDate()","codigoFuncion":"miCantidadTipoDate=document.getElementById('cantidadTipoDate').value;if( miCantidadTipoDate =='' || miCantidadTipoDate==null){alert('Diligencie Datos.No se pueden dejar campos vacios en cantidadTipoDate.');document.getElementById('cantidadTipoDate').focus();document.getElementById('cantidadTipoDate').value='2010-12-31';}"}
+  ]
+
+
+
+}
