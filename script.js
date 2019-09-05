@@ -783,11 +783,14 @@ http.send(text);
      }
 
      function obtenerCredencialesFetch(){
-
+/*
         var myBody = {
             "Username":"andressvx", 
             "Password":"Iconoi.2019"
           }
+
+          */
+
           /*
         const userAction = async () => {
             const response = await fetch('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate', {
@@ -805,14 +808,45 @@ http.send(text);
           }
 
 */
-          
-     fetch('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate')
+
+
+       
+     fetch('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+            'Access-Control-Allow-Origin':'*' ,
+            'Host': '10.10.100.13'     
+        },
+        body:JSON.stringify({
+            'Username':'andressvx', 
+            'Password':'Iconoi.2019'
+        }),
+        mode: 'no-cors',
+        
+      }
+     )
      .then(function(response6) {
          //devuelve un objeto promise conteniendo la respuesta, el objeto response
+
+         
+         if (!response6.ok) {
+            console.log("HTTP status " + response6.status);
+            console.log("Contenido de respuesta: "+JSON.stringify(response6)); // mostramos el estado
+         }else{
              //response es una respuesta http y no el archivo json, por tanto, usamos el método json() para extraer el contenido
-         return response6.json();
+             return response6.json();
+         }
+
+
      })
      .then(function(myJson6) {
+
+        if (myJson6 == null || myJson6==undefined) {
+
+            console.log("El Json no tiene contenido");
+
+            }else{
        
          //contamos la cantidad de elementos que tiene el json en el objeto "registros" y lo guardamos en datoLeido
          //si no especificamos el objeto, el json solamente tiene un elemento, es decir, solamente tiene el objeto registros
@@ -820,8 +854,13 @@ http.send(text);
     
             //contamos la cantidad de elementos que tiene el json en el objeto "registros" y lo guardamos en datoLeido
          //si no especificamos el objeto, el json solamente tiene un elemento, es decir, solamente tiene el objeto registros
-       datoLeido6=Object.keys(myJson6).length; //est
-       alert(datoLeido6);
+         datoLeido6=Object.keys(myJson6).length; //est
+         console.log("este es el contenido del json "+datoLeido6);
+         alert(datoLeido6);
+
+            }
+         
+
 
 
     });
