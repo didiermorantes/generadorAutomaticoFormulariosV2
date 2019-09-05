@@ -765,7 +765,6 @@ http.send(text);
         //cabeceras de la petición
         http.setRequestHeader('Access-Control-Allow-Origin','*');//permitimos origenes cruzados
         http.setRequestHeader('Content-type', 'application/json');
-        http.setRequestHeader('Host', '10.10.100.13');
         
         http.onreadystatechange = function() {
             if (http.readyState == 4) {
