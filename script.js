@@ -763,8 +763,10 @@ http.send(text);
         let http = new XMLHttpRequest();
         http.open("POST", 'http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate', true);
         //cabeceras de la petición
-        http.setRequestHeader('Content-type', 'text/html; charset=UTF-8');
+        http.setRequestHeader('Access-Control-Allow-Origin','*');//permitimos origenes cruzados
+        http.setRequestHeader('Content-type', 'application/json');
         http.setRequestHeader('Host', '10.10.100.13');
+        
         http.onreadystatechange = function() {
             if (http.readyState == 4) {
                 if (http.status == 200)
