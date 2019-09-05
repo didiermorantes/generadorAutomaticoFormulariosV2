@@ -768,9 +768,9 @@ http.send(text);
         http.onreadystatechange = function() {
             if (http.readyState == 4) {
                 if (http.status == 200)
-                    OkCallback(JSON.parse(http.responseText));
+                    alert(JSON.parse(http.responseText));
                 else
-                    ErrorCallback(http);
+                    alert(http);
             }
         };
         http.onerror = OkCallback;
