@@ -812,13 +812,12 @@ http.send(text);
 var myHeaders = new Headers();
 //myHeaders.set("Content-Type", "application/json");
 
-myHeaders.append("Content-Type", "application/json");
-
+myHeaders.append("Content-Type", "text/plain");
 myHeaders.append("Access-Control-Allow-Origin", "*");
 myHeaders.append('Access-Control-Allow-Methods','POST');
 myHeaders.append('Access-Control-Allow-Headers','*');
 myHeaders.append("Host", "10.10.100.13");
-myHeaders.append("Origin","http://corpohumboldt.edu.co/services2/consultaDatosBasicos.html");
+//myHeaders.append("Origin","http://corpohumboldt.edu.co");
 myHeaders.append("X-Custom-Header", "ProcessThisImmediately");
 
 
