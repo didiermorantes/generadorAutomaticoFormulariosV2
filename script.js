@@ -808,31 +808,45 @@ http.send(text);
           }
 
 */
+//mis cabeceras
+var myHeaders = new Headers();
+//myHeaders.set("Content-Type", "application/json");
+
+myHeaders.append("Content-Type", "application/json");
+
+myHeaders.append("Access-Control-Allow-Origin", "*");
+myHeaders.append('Access-Control-Allow-Methods','POST');
+myHeaders.append('Access-Control-Allow-Headers','*');
+myHeaders.append("Host", "10.10.100.13");
+myHeaders.append("Origin","http://corpohumboldt.edu.co/services2/consultaDatosBasicos.html");
+myHeaders.append("X-Custom-Header", "ProcessThisImmediately");
 
 
-       
-     fetch('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'text/plain;charset=utf-8',
-            'Access-Control-Allow-Origin':'*' ,
-            'Host': '10.10.100.13'     
-        },
-        body:JSON.stringify({
-            'Username':'andressvx', 
-            'Password':'Iconoi.2019'
-        }),
-        mode: 'no-cors',
-        
-      }
-     )
+//mi body
+var myBody={"Username":"andressvx", "Password":"Iconoi.2019"};
+
+//mi parametro de inicialización del fetch
+var myInit = {method: 'POST',
+                headers: myHeaders,
+               body:JSON.stringify(myBody), //los datos pueden ser string u object
+               mode: 'cors', //en mode: 'no-cors' el navegador está limitado a enviar 'simple-request' y su  Content-Type cuyos valores sean ( application/x-www-form-urlencoded, multipart/form-data, text/plain )
+               cache: 'no-cache' };
+ 
+               //creamos objeto de petición para verificar cabeceras
+               var myRequest = new Request('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate',myInit);
+               var myContentType = myRequest.headers.get('Content-Type');
+     fetch('http://10.10.100.13/apiSivigilaCRUD/api/login/authenticate',myInit)
      .then(function(response6) {
          //devuelve un objeto promise conteniendo la respuesta, el objeto response
 
          
-         if (!response6.ok) {
+         if (!response6.ok) { //si no hay respuesta 
+             console.log("La respuesta no fue satisfactoria");
             console.log("HTTP status " + response6.status);
             console.log("Contenido de respuesta: "+JSON.stringify(response6)); // mostramos el estado
+          
+           console.log("La cabecera solicitada de contenido fue: "+myContentType);
+          
          }else{
              //response es una respuesta http y no el archivo json, por tanto, usamos el método json() para extraer el contenido
              return response6.json();
@@ -860,10 +874,13 @@ http.send(text);
 
             }
          
+    })
+    .catch(function(error) //este solo sera rechazado ante un fallo de red o si algo impidió completar la solicitud.  Pruebe quitando el mode:'no-cors' para verificar
+    {
+        console.log('Hubo un problema con la petición Fetch:' + error.message);
+        console.log("La cabecera solicitada de contenido fue: "+myContentType);
 
-
-
-    });
+    }) ;
      
 
      }
