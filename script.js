@@ -683,6 +683,7 @@ let nombreTestigo = myJson14.registros[i14].descripcion;
 //al parecer el testigo retorna un caracter vacio (espacio) cuando es falso
 //evaluamos por el caracter Unicode ya que otras validaciones fallaron
 //validamos la posición(0) de testigo (El primer  bit)
+//los que tienen valor cero no se muestran
 if(testigo.charCodeAt(0) == 0){
 
     //no hacemos nada, y por tanto no se pintará
