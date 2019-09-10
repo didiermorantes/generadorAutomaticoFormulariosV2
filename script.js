@@ -650,7 +650,8 @@ var datoLeido=0;
         // crea un nuevo div 
         // y añade contenido 
         var newParentDiv14 = document.createElement("div"); 
-        newParentDiv14.setAttribute('class', 'd-inline-flex flex-wrap');
+        //newParentDiv14.setAttribute('class', ' flex-sm-fill flex-md-fill justify-content-center flex-grow-1 ');
+        newParentDiv14.setAttribute('class', 'd-inline-flex flex-sm-fill flex-md-fill justify-content-center flex-grow-1 ');
         // añade el elemento creado y su contenido al DOM 
         var currentDiv14 = document.getElementById("div"); 
         document.body.insertBefore(newParentDiv14, currentDiv14); 
@@ -680,6 +681,7 @@ var datoLeido=0;
 
 let testigo=myJson14.registros[i14].editable;
 let nombreTestigo = myJson14.registros[i14].descripcion;
+let grupo =  myJson14.registros[i14].grupo; //variable para almacenar el grupo del elemento
 //al parecer el testigo retorna un caracter vacio (espacio) cuando es falso
 //evaluamos por el caracter Unicode ya que otras validaciones fallaron
 //validamos la posición(0) de testigo (El primer  bit)
@@ -687,65 +689,157 @@ let nombreTestigo = myJson14.registros[i14].descripcion;
 if(testigo.charCodeAt(0) == 0){
 
     //no hacemos nada, y por tanto no se pintará
-console.log('El valor del campo editable  para '+nombreTestigo+ ' es: ' + testigo);
+    console.log('El valor Unicode del carácter en el índice proporcionado  de la variable testigo es '+testigo.charCodeAt(0)+' para el campo '+nombreTestigo);
+console.log('El valor del campo '+nombreTestigo+ ' es: ' + testigo);
 }
 else
 {
-    console.log('El tipo de datos del testigo es '+testigo.charCodeAt(0));
-    console.log('El valor del campo editable  para '+nombreTestigo+ ' es: ' + testigo);
-      // crea un nuevo div 
-                // y añade contenido 
-                var newDiv14 = document.createElement("div"); 
-                //var newContent2 = document.createTextNode("Campo: "+i2);  --DESCOMENTARIAR SI SE QUIERE CONTENEDOR GENERICO
-                
-               // alert(myJson2.campos[i2].nombreCampo);      --DESCOMENTARIAR SI SE QUIERE VER CADA NOMBRE DE CAMPO EN UN ALERT
-               //asignamos el nombre del campo de acuerdo al contenido del json
-                var newContent14 = document.createTextNode(myJson14.registros[i14].descripcion); 
-            
-                
-                newDiv14.appendChild(newContent14); //añade texto al div creado.  
-                // añade el elemento creado y su contenido al DOM 
-                var currentDiv14 = document.getElementById("div"); 
-                document.body.insertBefore(newDiv14, currentDiv14); 
-    
-    
-            //creamos elemento de tipo input
-                var input14 = document.createElement("input");     
-                //establecemos el tipo texto
-                //input2.setAttribute('type', 'text'); --DESCOMENTARIAR SI SE QUIERE UN CONTENEDOR GENERICO DE TIPO TEXT
-    
-                //asignamos el tipo de dato, de acuerdo al json
-                input14.setAttribute('type', myJson14.registros[i14].tipo);
-                //input2.name = "caja"+i2; --DESCOMENTARIRAR SI SE QUIERE UN NAME GENERICO
-                //input2.id="caja"+i2;   --DESCOMENTARIAR SI SE QUIERE UN ID GENERICO
-    
-                    //asignamos como name e id, la información del nombre del campo proveniente del json
-                input14.name = myJson14.registros[i14].nombre;
-                input14.id=myJson14.registros[i14].nombre;
-    
-                //campos en linea
-                //input.setAttribute('class', 'd-sm-inline-flex');
-                input14.setAttribute('class', 'd-sm-flex');
-                //le damos bordes al div
-                    //insertamos función javascript al elemento con el evento onblur, es decir, cuando pierde el foco
-                    input14.setAttribute('onblur',myJson14.registros[i14].jsEvento);
-    
-    
-                newDiv14.setAttribute('style','border: thin solid black');
-                //asignamos un color a los div pares y otro a los impares
-                    if(i14%2==0){
-                        //color azul turquesa a los pares
-                        newDiv14.setAttribute('class','p-2 bg-light');
-                    }
-                    else{
-                        //color amarillo a los impares
-                        newDiv14.setAttribute('class','p-2 bg-secondary');
-                    }
-    
-                newDiv14.appendChild(input14); //añade la caja de texto al div creado recientemente. 
-            //se crearán tantos div como el número que se haya ingresado en la caja de texto
-            newParentDiv14.appendChild(newDiv14); //añadimos cada div a su padre
+//MOSTRAMOS 
+console.log('El valor Unicode del carácter en el índice proporcionado  de la variable testigo es '+testigo.charCodeAt(0)+' para el campo '+nombreTestigo);
+    console.log('El valor del campo '+nombreTestigo+ ' es: ' + testigo);
 
+
+
+
+                    //VERIFICAMOS SI HAY ENVOLTORIOS PARA CREAR 
+                //HACEMOS ESTA VERIFICACION PARA CREAR DIVS INDEPENDIENTES  PARA LOS ENVOLTORIOS EN EL LUGAR ADECUADO
+                let envoltorio = myJson14.registros[i14].envoltorio;
+                //si el envoltorio no tiene longitud, significa que no hay datos
+                //generalmente el envoltorio estará vacio o nulo, pero si no es nullo o indefinido o vacio, procedemos a imprimir lo que haya en el campo envoltorio
+                if(envoltorio == null ){
+
+                    //no hacemos nada, porque generalmente el envoltorio es null
+
+                    //OJO EL ENVOLTORIO SOLAMENTE DEBE IR EN EL MISMO REGISTRO DONDE COMIENZA EL ENVOLTORIO PARA QUE ESTE CODIGO FUNCIONE, LOS DEMAS ENVOLTORIOS DEBEN IR NULL
+                }
+                else{
+
+                            //creamos un div especial para el envoltorio en la secuencia adecuada
+
+
+                                // crea un nuevo div 
+                                // y añade contenido 
+                                var newDivEnvoltorio= document.createElement("div"); 
+                                //var newContent2 = document.createTextNode("Campo: "+i2);  --DESCOMENTARIAR SI SE QUIERE CONTENEDOR GENERICO
+
+
+                                newDivEnvoltorio.setAttribute('class', 'd-sm-flex flex-sm-fill flex-grow-1 flex-column'); //DIV DE TIPO FLEX DE TIPO COLUMNA
+                                newDivEnvoltorio.setAttribute('style','border: thin solid black');
+
+
+
+
+
+
+
+                                
+                            // alert(myJson2.campos[i2].nombreCampo);      --DESCOMENTARIAR SI SE QUIERE VER CADA NOMBRE DE CAMPO EN UN ALERT
+                            //asignamos el nombre del campo de acuerdo al contenido del json envoltorio
+                                var newContentEnvoltorio = document.createTextNode(myJson14.registros[i14].envoltorio); 
+                            
+                                
+                                newDivEnvoltorio.appendChild(newContentEnvoltorio); //añade texto al div creado.  
+                                // añade el elemento creado y su contenido al DOM 
+                                var currentDivEnvoltorio = document.getElementById("div"); 
+                                document.body.insertBefore(newDivEnvoltorio, currentDivEnvoltorio); 
+
+                                
+                                 
+                            newParentDiv14.appendChild(newDivEnvoltorio); //añadimos cada div a su padre
+
+                             
+
+
+                }//fin else interno
+
+
+
+
+
+
+                
+                    // crea un nuevo div 
+                                // y añade contenido 
+                                var newDiv14 = document.createElement("div"); 
+                                //var newContent2 = document.createTextNode("Campo: "+i2);  --DESCOMENTARIAR SI SE QUIERE CONTENEDOR GENERICO
+
+
+
+
+
+
+
+
+
+
+                                
+                            // alert(myJson2.campos[i2].nombreCampo);      --DESCOMENTARIAR SI SE QUIERE VER CADA NOMBRE DE CAMPO EN UN ALERT
+                            //asignamos el nombre del campo de acuerdo al contenido del json
+                                var newContent14 = document.createTextNode(myJson14.registros[i14].descripcion); 
+                            
+                                
+                                newDiv14.appendChild(newContent14); //añade texto al div creado.  
+                                // añade el elemento creado y su contenido al DOM 
+                                var currentDiv14 = document.getElementById("div"); 
+                                document.body.insertBefore(newDiv14, currentDiv14); 
+                    
+                    
+                            //creamos elemento de tipo input
+                                var input14 = document.createElement("input");     
+                                //establecemos el tipo texto
+                                //input2.setAttribute('type', 'text'); --DESCOMENTARIAR SI SE QUIERE UN CONTENEDOR GENERICO DE TIPO TEXT
+                    
+                                //asignamos el tipo de dato, de acuerdo al json
+                                input14.setAttribute('type', myJson14.registros[i14].tipo);
+                                //input2.name = "caja"+i2; --DESCOMENTARIRAR SI SE QUIERE UN NAME GENERICO
+                                //input2.id="caja"+i2;   --DESCOMENTARIAR SI SE QUIERE UN ID GENERICO
+                    
+                                    //asignamos como name e id, la información del nombre del campo proveniente del json
+                                input14.name = myJson14.registros[i14].nombre;
+                                input14.id=myJson14.registros[i14].nombre;
+                    
+                                //campos en linea
+                                //input.setAttribute('class', 'd-sm-inline-flex');
+                                input14.setAttribute('class', 'd-sm-flex');
+                                //le damos bordes al div
+                                    //insertamos función javascript al elemento con el evento onblur, es decir, cuando pierde el foco
+                                    input14.setAttribute('onblur',myJson14.registros[i14].jsEvento);
+                    
+                    
+                                newDiv14.setAttribute('style','border: thin solid black');
+                                //asignamos un color a los div pares y otro a los impares
+                                    if(i14%2==0){
+                                        //color azul turquesa a los pares
+                                        newDiv14.setAttribute('class','p-2 bg-light');
+                                    }
+                                    else{
+                                        //color amarillo a los impares
+                                        newDiv14.setAttribute('class','p-2 bg-secondary');
+                                    }
+                    
+                                newDiv14.appendChild(input14); //añade la caja de texto al div creado recientemente. 
+                            //se crearán tantos div como el número que se haya ingresado en la caja de texto
+
+
+
+
+//AGREGAMOS CADA CONTENIDO A SU ENVOLTORIO, SI Y SOLO SI EL GRUPO ES UN VALOR NUMERICO
+//EN LA TABLA LOS GRUPOS SON LETRAS
+if(myJson14.registros[i14].grupo == grupo && !isNaN(grupo)){
+    //si hay envoltorio agregamos el div al div envoltorio
+    newDivEnvoltorio.appendChild(newDiv14); //añadimos cada div a su envoltorio
+}
+else{
+//si no hay envoltorio agregamos el div al div padre
+    newParentDiv14.appendChild(newDiv14); //añadimos cada div a su padre
+}
+
+                           
+
+
+
+
+     
 
 }//fin else
 
