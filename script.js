@@ -651,7 +651,7 @@ var datoLeido=0;
         // y añade contenido 
         var newParentDiv14 = document.createElement("div"); 
         //newParentDiv14.setAttribute('class', ' flex-sm-fill flex-md-fill justify-content-center flex-grow-1 ');
-        newParentDiv14.setAttribute('class', 'd-inline-flex flex-sm-fill flex-md-fill justify-content-center flex-grow-1 ');
+        newParentDiv14.setAttribute('class', 'd-inline-flex flex-sm-fill  justify-content-center flex-grow-1 ');
         // añade el elemento creado y su contenido al DOM 
         var currentDiv14 = document.getElementById("div"); 
         document.body.insertBefore(newParentDiv14, currentDiv14); 
