@@ -684,7 +684,9 @@ let testigo=myJson14.registros[i14].editable;
 let nombreTestigo = myJson14.registros[i14].descripcion;
 let grupo =  myJson14.registros[i14].grupo; //variable para almacenar el grupo del elemento
 let ordenGrupo=10; //variable para tener en cuenta el orden en que se pintaran los div. Asignamos el valor 10 que es el valor por defecto que tiene en la tabla
+let ordenGrupoEnvoltorio="";
 let claseOrdenGrupo="";//variable que almacenará la clase de orden grupo que se usará en el flex
+let claseOrdenGrupoEnvoltorio="";
 let tooltip = myJson14.registros[i14].expresionRegular;//el tooltip será la información que se encuentre en el campo expresionRegular de la tabla
 //var nombreCampos = []; //Array para almacenar los nombres de los campos que vengan de la tabla. Esto solucionará problemas a futuro
 
@@ -728,11 +730,25 @@ console.log('El valor Unicode del carácter en el índice proporcionado  de la v
                                 var newDivEnvoltorio= document.createElement("div"); 
                                 //var newContent2 = document.createTextNode("Campo: "+i2);  --DESCOMENTARIAR SI SE QUIERE CONTENEDOR GENERICO
 
+//ASIGNAMOS EL ORDEN AL FLEX DE ENVOLTORIO DE ACUERDO AL ORDEN DE GRUPO QUE TENGA EN LA TABLA, SI NO TIENE, NO ASIGNAMOS ORDEN Y SE MUESTRA SEGÚN SE VAYA GENERANDO
+//EN LA TABLA Grupo NO PUEDE SER NULO Y TIENE UN VALOR POR DEFECTO DE TIPO STRING CON EL NOMBRE DEL EVENTO 
+//VERIFICAREMOS QUE GRUPO SEA UN NUMERO PARA PODER TENER EN CUENTA EL ORDEN GRUPO
+ordenGrupoEnvoltorio= myJson14.registros[i14].grupo;
+//validamos que la variable tenga un valor diferente al valor que tiene por defecto
+//ordenamiento del flex
+if(!isNaN(parseInt(ordenGrupoEnvoltorio))){//convertimos a entero el grupo, y luego evaluamos si es un numero
 
-                                newDivEnvoltorio.setAttribute('class', 'd-sm-flex flex-column'); //DIV DE TIPO FLEX DE TIPO COLUMNA
+    console.log("El orden de grupo del elemento Padres es: "+ordenGrupoEnvoltorio); 
+    claseOrdenGrupoEnvoltorio='order-'+ordenGrupoEnvoltorio;
+    
+
+}
+
+
+
+
+                                newDivEnvoltorio.setAttribute('class', 'd-sm-flex flex-column '+claseOrdenGrupoEnvoltorio); //DIV DE TIPO FLEX DE TIPO COLUMNA y su orden flex
                                 newDivEnvoltorio.setAttribute('style','border: thin solid black');
-
-
 
 
 
@@ -820,6 +836,7 @@ console.log('El valor Unicode del carácter en el índice proporcionado  de la v
 ordenGrupo= myJson14.registros[i14].ordenGrupo;
 
 //validamos que la variable tenga un valor diferente al valor que tiene por defecto
+//ordenamiento del flex
 if(ordenGrupo != 10){
 
     console.log("El orden de grupo del elemento es: "+ordenGrupo); 
@@ -849,11 +866,11 @@ if(ordenGrupo != 10){
                                 //asignamos un color a los div pares y otro a los impares
                                     if(i14%2==0){
                                         //color azul turquesa a los pares
-                                        newDiv14.setAttribute('class','p-2 bg-light '+claseOrdenGrupo);
+                                        newDiv14.setAttribute('class','p-2 bg-light '+claseOrdenGrupo); //añadimos el orden flex
                                     }
                                     else{
                                         //color amarillo a los impares
-                                        newDiv14.setAttribute('class','p-2 bg-secondary '+claseOrdenGrupo);
+                                        newDiv14.setAttribute('class','p-2 bg-secondary '+claseOrdenGrupo);//añadimos el orden flex
                                     }
                     
                                 newDiv14.appendChild(input14); //añade la caja de texto al div creado recientemente. 

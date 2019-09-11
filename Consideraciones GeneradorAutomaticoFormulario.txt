@@ -1,0 +1,5 @@
+1. El Generador depende enteramente de la tablaTipoEvento
+2. Se muestran solamente los campos que tienen el valor "1" en el campo editable. Los que tengan valor "0" no se muestran
+3. Los elementos pueden organizarse por grupos teniendo en cuenta el campo "grupo" y "ordenGrupo"
+4. El campo "envoltorio" de la tabla tiene propósitos de mostrar un titulo y organizar grupos. Ese campo únicamente se diligenciará para el primer elemento del mismo grupo al que pertenece el envoltorio. Los demas elementos del mismo grupo(después del primero) tendrán valor null
+5. El valor null en los demas campos que no sean el primero al que le corresponde el envoltorio servirá para organizar de acuerdo al campo "grupo"

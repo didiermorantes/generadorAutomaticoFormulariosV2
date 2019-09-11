@@ -20,3 +20,11 @@
 
 5. Generar formulario a partir de la estructura de la base de datos actual tablaTipoEvento (La base de datos de sivigila 4.0)
 	4. Debe poder leerse la información del campo tipo JSON, y de allí generarse el formulario correspondiente  (XAMPP CONFIGURADO PARA TRABAJAR CON PUERTO 8181)
+
+6. Formulario generado a partir de tabla teniendo en cuenta:
+	a. Envoltorio
+	b. Ordenamiento según grupo
+	c. Validación de javascript
+	d. tooltip
+	e. No se muestran los campos que no son editables
+
