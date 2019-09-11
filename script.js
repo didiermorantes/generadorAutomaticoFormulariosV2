@@ -651,7 +651,7 @@ var datoLeido=0;
         // y añade contenido 
         var newParentDiv14 = document.createElement("div"); 
         //newParentDiv14.setAttribute('class', ' flex-sm-fill flex-md-fill justify-content-center flex-grow-1 ');
-        newParentDiv14.setAttribute('class', 'd-inline-flex flex-sm-fill  justify-content-center flex-grow-1 ');
+        newParentDiv14.setAttribute('class', 'd-flex justify-content-center ');
         // añade el elemento creado y su contenido al DOM 
         var currentDiv14 = document.getElementById("div"); 
         document.body.insertBefore(newParentDiv14, currentDiv14); 
@@ -682,6 +682,10 @@ var datoLeido=0;
 let testigo=myJson14.registros[i14].editable;
 let nombreTestigo = myJson14.registros[i14].descripcion;
 let grupo =  myJson14.registros[i14].grupo; //variable para almacenar el grupo del elemento
+let ordenGrupo=10; //variable para tener en cuenta el orden en que se pintaran los div. Asignamos el valor 10 que es el valor por defecto que tiene en la tabla
+let claseOrdenGrupo="";//variable que almacenará la clase de orden grupo que se usará en el flex
+
+
 //al parecer el testigo retorna un caracter vacio (espacio) cuando es falso
 //evaluamos por el caracter Unicode ya que otras validaciones fallaron
 //validamos la posición(0) de testigo (El primer  bit)
@@ -723,7 +727,7 @@ console.log('El valor Unicode del carácter en el índice proporcionado  de la v
                                 //var newContent2 = document.createTextNode("Campo: "+i2);  --DESCOMENTARIAR SI SE QUIERE CONTENEDOR GENERICO
 
 
-                                newDivEnvoltorio.setAttribute('class', 'd-sm-flex flex-sm-fill flex-grow-1 flex-column'); //DIV DE TIPO FLEX DE TIPO COLUMNA
+                                newDivEnvoltorio.setAttribute('class', 'd-sm-flex  flex-column'); //DIV DE TIPO FLEX DE TIPO COLUMNA
                                 newDivEnvoltorio.setAttribute('style','border: thin solid black');
 
 
@@ -801,6 +805,24 @@ console.log('El valor Unicode del carácter en el índice proporcionado  de la v
                                 //campos en linea
                                 //input.setAttribute('class', 'd-sm-inline-flex');
                                 input14.setAttribute('class', 'd-sm-flex');
+
+//ASIGNAMOS EL ORDEN AL FLEX DE ACUERDO AL ORDEN DE GRUPO QUE TENGA EN LA TABLA, SI NO TIENE, NO ASIGNAMOS ORDEN Y SE MUESTRA SEGÚN SE VAYA GENERANDO
+//EN LA TABLA ordenGrupo NO PUEDE SER NULO Y TIENE UN VALOR POR DEFECTO DE 10   
+//VERIFICAREMOS QUE ORDEN GRUPO SEA DIFERENTE DE 10 PARA PODER TENER EN CUENTA EL ORDEN GRUPO
+ordenGrupo= myJson14.registros[i14].ordenGrupo;
+
+//validamos que la variable tenga un valor diferente al valor que tiene por defecto
+if(ordenGrupo != 10){
+
+    console.log("El orden de grupo del elemento es: "+ordenGrupo); 
+    claseOrdenGrupo='order-'+ordenGrupo;
+    
+
+}
+
+
+
+
                                 //le damos bordes al div
                                     //insertamos función javascript al elemento con el evento onblur, es decir, cuando pierde el foco
                                     input14.setAttribute('onblur',myJson14.registros[i14].jsEvento);
@@ -810,11 +832,11 @@ console.log('El valor Unicode del carácter en el índice proporcionado  de la v
                                 //asignamos un color a los div pares y otro a los impares
                                     if(i14%2==0){
                                         //color azul turquesa a los pares
-                                        newDiv14.setAttribute('class','p-2 bg-light');
+                                        newDiv14.setAttribute('class','p-2 bg-light '+claseOrdenGrupo);
                                     }
                                     else{
                                         //color amarillo a los impares
-                                        newDiv14.setAttribute('class','p-2 bg-secondary');
+                                        newDiv14.setAttribute('class','p-2 bg-secondary '+claseOrdenGrupo);
                                     }
                     
                                 newDiv14.appendChild(input14); //añade la caja de texto al div creado recientemente. 
