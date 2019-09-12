@@ -3,3 +3,4 @@
 3. Los elementos pueden organizarse por grupos teniendo en cuenta el campo "grupo" y "ordenGrupo"
 4. El campo "envoltorio" de la tabla tiene propósitos de mostrar un titulo y organizar grupos. Ese campo únicamente se diligenciará para el primer elemento del mismo grupo al que pertenece el envoltorio. Los demas elementos del mismo grupo(después del primero) tendrán valor null
 5. El valor null en los demas campos que no sean el primero al que le corresponde el envoltorio servirá para organizar de acuerdo al campo "grupo"
+6. El ordenamiento primario se realiza a traves del campo denominado "orden". Este campo debe tener correlación con el campo grupo, y este a su vez con el campo OrdenGrupo para que todo funcione correctamente. No tiene sentido colocar como "grupo" 1 un campo que tenga su valor de orden 39 o 40. Si usted coloca un campo como grupo 1, inexorablemente su campo "orden" tiene que pertenecer a los primeros lugares.

@@ -686,18 +686,27 @@ var datoLeido=0;
    console.log("El orden visualizado en el arreglo es : "+arregloOrdenadoJson[indiceArregloOrdenado].orden);
                     }
 
+                    limiteInferior10 = 1;//limite inferior para recorrer el arreglo especial
+                    limiteSuperior10=arregloOrdenadoJson.length;//el limite superior será  el limite del arreglo
+            
+
                     for(var i14=limiteInferior10; i14<limiteSuperior10;i14++){
 //ANTES DE CREAR EL DIV VERIFICAMOS SI EL CAMPO ES EDITABLE PARA VISUALIZARLO O NO
 
-
-let testigo=myJson14.registros[i14].editable;
-let nombreTestigo = myJson14.registros[i14].descripcion;
-let grupo =  myJson14.registros[i14].grupo; //variable para almacenar el grupo del elemento
+let testigo=arregloOrdenadoJson[i14].editable;
+//let testigo=myJson14.registros[i14].editable; //DESCOMENTAR SI NO SE USA EL ARREGLO ORDENADO
+let nombreTestigo = arregloOrdenadoJson[i14].descripcion;
+//let nombreTestigo = myJson14.registros[i14].descripcion; //DESCOMENTAR SI NO SE USA EL ARREGLO ORDENADO
+let grupo =  arregloOrdenadoJson[i14].grupo; //variable para almacenar el grupo del elemento
+//let grupo =  myJson14.registros[i14].grupo; //variable para almacenar el grupo del elemento DESCOMENTAR SI NO SE USA EL ARREGLO ORDENADO
 let ordenGrupo=10; //variable para tener en cuenta el orden en que se pintaran los div. Asignamos el valor 10 que es el valor por defecto que tiene en la tabla
 let ordenGrupoEnvoltorio="";
 let claseOrdenGrupo="";//variable que almacenará la clase de orden grupo que se usará en el flex
 let claseOrdenGrupoEnvoltorio="";
-let tooltip = myJson14.registros[i14].expresionRegular;//el tooltip será la información que se encuentre en el campo expresionRegular de la tabla
+let tooltip = arregloOrdenadoJson[i14].expresionRegular;//el tooltip será la información que se encuentre en el campo expresionRegular de la tabla
+//let tooltip = myJson14.registros[i14].expresionRegular;//el tooltip será la información que se encuentre en el campo expresionRegular de la tabla  //DESCOMENTAR SI NO SE USA EL ARREGLO ORDENADO
+
+
 //var nombreCampos = []; //Array para almacenar los nombres de los campos que vengan de la tabla. Esto solucionará problemas a futuro
 
 //al parecer el testigo retorna un caracter vacio (espacio) cuando es falso
@@ -721,7 +730,8 @@ console.log('El valor Unicode del carácter en el índice proporcionado  de la v
 
                     //VERIFICAMOS SI HAY ENVOLTORIOS PARA CREAR 
                 //HACEMOS ESTA VERIFICACION PARA CREAR DIVS INDEPENDIENTES  PARA LOS ENVOLTORIOS EN EL LUGAR ADECUADO
-                let envoltorio = myJson14.registros[i14].envoltorio;
+              //  let envoltorio = myJson14.registros[i14].envoltorio;  //DESCOMENTAR SI NO SE USA EL ARREGLO ORDENADO
+                let envoltorio = arregloOrdenadoJson[i14].envoltorio;
                 //si el envoltorio no tiene longitud, significa que no hay datos
                 //generalmente el envoltorio estará vacio o nulo, pero si no es nullo o indefinido o vacio, procedemos a imprimir lo que haya en el campo envoltorio
                 if(envoltorio == null ){
@@ -743,7 +753,8 @@ console.log('El valor Unicode del carácter en el índice proporcionado  de la v
 //ASIGNAMOS EL ORDEN AL FLEX DE ENVOLTORIO DE ACUERDO AL ORDEN DE GRUPO QUE TENGA EN LA TABLA, SI NO TIENE, NO ASIGNAMOS ORDEN Y SE MUESTRA SEGÚN SE VAYA GENERANDO
 //EN LA TABLA Grupo NO PUEDE SER NULO Y TIENE UN VALOR POR DEFECTO DE TIPO STRING CON EL NOMBRE DEL EVENTO 
 //VERIFICAREMOS QUE GRUPO SEA UN NUMERO PARA PODER TENER EN CUENTA EL ORDEN GRUPO
-ordenGrupoEnvoltorio= myJson14.registros[i14].grupo;
+//ordenGrupoEnvoltorio= myJson14.registros[i14].grupo;//DESCOMENTAR SI NO SE USA EL ARREGLO ORDENADO
+ordenGrupoEnvoltorio= arregloOrdenadoJson[i14].grupo;
 //validamos que la variable tenga un valor diferente al valor que tiene por defecto
 //ordenamiento del flex
 if(!isNaN(parseInt(ordenGrupoEnvoltorio))){//convertimos a entero el grupo, y luego evaluamos si es un numero
@@ -767,7 +778,8 @@ if(!isNaN(parseInt(ordenGrupoEnvoltorio))){//convertimos a entero el grupo, y lu
                                 
                             // alert(myJson2.campos[i2].nombreCampo);      --DESCOMENTARIAR SI SE QUIERE VER CADA NOMBRE DE CAMPO EN UN ALERT
                             //asignamos el nombre del campo de acuerdo al contenido del json envoltorio
-                                var newContentEnvoltorio = document.createTextNode(myJson14.registros[i14].envoltorio); 
+                                // var newContentEnvoltorio = document.createTextNode(myJson14.registros[i14].envoltorio); //DESCOMENTAR SI NO SE USA EL ARREGLO ORDENADO 
+                                var newContentEnvoltorio = document.createTextNode(arregloOrdenadoJson[i14].envoltorio); 
                             
                                 
                                 newDivEnvoltorio.appendChild(newContentEnvoltorio); //añade texto al div creado.  
@@ -807,7 +819,8 @@ if(!isNaN(parseInt(ordenGrupoEnvoltorio))){//convertimos a entero el grupo, y lu
                                 
                             // alert(myJson2.campos[i2].nombreCampo);      --DESCOMENTARIAR SI SE QUIERE VER CADA NOMBRE DE CAMPO EN UN ALERT
                             //asignamos el nombre del campo de acuerdo al contenido del json
-                                var newContent14 = document.createTextNode(myJson14.registros[i14].descripcion); 
+                               // var newContent14 = document.createTextNode(myJson14.registros[i14].descripcion); //DESCOMENTAR SI NO SE USA EL ARREGLO ORDENADO
+                                var newContent14 = document.createTextNode(arregloOrdenadoJson[i14].descripcion); 
                             
                                 
                                 newDiv14.appendChild(newContent14); //añade texto al div creado.  
@@ -822,13 +835,18 @@ if(!isNaN(parseInt(ordenGrupoEnvoltorio))){//convertimos a entero el grupo, y lu
                                 //input2.setAttribute('type', 'text'); --DESCOMENTARIAR SI SE QUIERE UN CONTENEDOR GENERICO DE TIPO TEXT
                     
                                 //asignamos el tipo de dato, de acuerdo al json
-                                input14.setAttribute('type', myJson14.registros[i14].tipo);
+                                //input14.setAttribute('type', myJson14.registros[i14].tipo);
+                                input14.setAttribute('type', arregloOrdenadoJson[i14].tipo);
+
                                 //input2.name = "caja"+i2; --DESCOMENTARIRAR SI SE QUIERE UN NAME GENERICO
                                 //input2.id="caja"+i2;   --DESCOMENTARIAR SI SE QUIERE UN ID GENERICO
                     
                                     //asignamos como name e id, la información del nombre del campo proveniente del json
-                                input14.name = myJson14.registros[i14].nombre;
-                                input14.id=myJson14.registros[i14].nombre;
+                              //  input14.name = myJson14.registros[i14].nombre; //DESCOMENTARIAR SI NO SE USA EL ARREGLO ORDENADO
+                              //  input14.id=myJson14.registros[i14].nombre; //DESCOMENTARIAR SI NO SE USA EL ARREGLO ORDENADO
+
+                                input14.name = arregloOrdenadoJson[i14].nombre;
+                                input14.id=arregloOrdenadoJson[i14].nombre;
 
                                 //nombreCampos.push(myJson14.registros[i14].nombre); //añadimos elementos al array nombreCampos
                     
@@ -843,7 +861,8 @@ if(!isNaN(parseInt(ordenGrupoEnvoltorio))){//convertimos a entero el grupo, y lu
 //ASIGNAMOS EL ORDEN AL FLEX DE ACUERDO AL ORDEN DE GRUPO QUE TENGA EN LA TABLA, SI NO TIENE, NO ASIGNAMOS ORDEN Y SE MUESTRA SEGÚN SE VAYA GENERANDO
 //EN LA TABLA ordenGrupo NO PUEDE SER NULO Y TIENE UN VALOR POR DEFECTO DE 10   
 //VERIFICAREMOS QUE ORDEN GRUPO SEA DIFERENTE DE 10 PARA PODER TENER EN CUENTA EL ORDEN GRUPO
-ordenGrupo= myJson14.registros[i14].ordenGrupo;
+//ordenGrupo= myJson14.registros[i14].ordenGrupo; //DESCOMENTARIAR SI NO SE USA EL ARREGLO ORDENADO
+ordenGrupo= arregloOrdenadoJson[i14].ordenGrupo; 
 
 //validamos que la variable tenga un valor diferente al valor que tiene por defecto
 //ordenamiento del flex
@@ -860,7 +879,9 @@ if(ordenGrupo != 10){
 
                                 //le damos bordes al div
                                     //insertamos función javascript al elemento con el evento onblur, es decir, cuando pierde el foco
-                                    input14.setAttribute('onblur',myJson14.registros[i14].jsEvento);
+                                   // input14.setAttribute('onblur',myJson14.registros[i14].jsEvento); //DESCOMENTARIAR SI NO SE USA EL ARREGLO ORDENADO
+
+                                    input14.setAttribute('onblur',arregloOrdenadoJson[i14].jsEvento);
                     
                     
                                //AÑADIMOS TOOLTIP A LOS CAMPOS INPUT CON EL TOOLTIP QUE SE ENCUENTRE EN LA TABLA CAMPO EXPRESION REGULAR
@@ -891,7 +912,8 @@ if(ordenGrupo != 10){
 
 //AGREGAMOS CADA CONTENIDO A SU ENVOLTORIO, SI Y SOLO SI EL GRUPO ES UN VALOR NUMERICO
 //EN LA TABLA LOS GRUPOS SON LETRAS
-if(myJson14.registros[i14].grupo == grupo && !isNaN(grupo)){
+//if(myJson14.registros[i14].grupo == grupo && !isNaN(grupo)){//DESCOMENTARIRAR SI NO SE USA EL ARREGLO ORDENADO
+if(arregloOrdenadoJson[i14].grupo == grupo && !isNaN(grupo)){
     //si hay envoltorio agregamos el div al div envoltorio
     newDivEnvoltorio.appendChild(newDiv14); //añadimos cada div a su envoltorio
 }
