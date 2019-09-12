@@ -675,10 +675,20 @@ var datoLeido=0;
                         console.log('El ultimo elemento del objeto completo segun el id de la lista es: ');
                         console.log(myJson14.registros[limiteSuperior10]);
 
+                //Almacenamos en un arreglo aparte los datos del json, pero ordenado de acuerdo al campo orden
+                        var arregloOrdenadoJson = []; //Array para almacenar el json de acuerdo al campo Orden
+                        var indiceArregloOrdenado=0;//Variable para almacenar el indice del arreglo
 //no lo hacemos menor o igual al limite superior, pues el limite superior ya es parte de otra tabla
                     for(var i14=limiteInferior10; i14<limiteSuperior10;i14++){
 
+  indiceArregloOrdenado=myJson14.registros[i14].orden; //el indice del arreglo sera el campo orden
+   arregloOrdenadoJson[indiceArregloOrdenado]=  myJson14.registros[i14];  //guardamos todo el json en esa posicion                 
+   console.log("El orden visualizado en el arreglo es : "+arregloOrdenadoJson[indiceArregloOrdenado].orden);
+                    }
+
+                    for(var i14=limiteInferior10; i14<limiteSuperior10;i14++){
 //ANTES DE CREAR EL DIV VERIFICAMOS SI EL CAMPO ES EDITABLE PARA VISUALIZARLO O NO
+
 
 let testigo=myJson14.registros[i14].editable;
 let nombreTestigo = myJson14.registros[i14].descripcion;
