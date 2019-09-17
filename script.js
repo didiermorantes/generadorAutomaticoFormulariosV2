@@ -544,7 +544,8 @@ var datoLeido=0;
      var datoLeidoJsonProcesado10 =0;  //Variable para guardar la seleccion de la lista desplegable
      var idMyJsonProcesado10=0;//Variable para guardar el id del primer valor del jsonProcesado
      var idMyJsonProcesado12=0;//Variable para guardar el id del ultimo valor del jsonProcesado
-     
+     var contadorListaDesplegable=0;//variable para almacenar la cantidad de listas desplegables
+
      
      fetch('https://vitalsaludem.com/services/api_db/tipoEvento/leerLista.php')
      .then(function(response14) {
@@ -836,7 +837,42 @@ if(!isNaN(parseInt(ordenGrupoEnvoltorio))){//convertimos a entero el grupo, y lu
                     
                                 //asignamos el tipo de dato, de acuerdo al json
                                 //input14.setAttribute('type', myJson14.registros[i14].tipo);
+
+
+//VALIDACION DEL CAMPO COMO LISTA DESPLEGABLE
+//DEBE CUMPLIR DOS CONDICIONES: QUE EL INPUT TYPE SEA NUMBER Y QUE EL CAMPO "valorPorDefecto" TENGA EL VALOR "listaDesplegable"
+//HACEMOS LA VALIDACION ANTES DE AGREGAR EL INPUT TYPE
+
+if((arregloOrdenadoJson[i14].tipo=="NUMBER") && (arregloOrdenadoJson[i14].valorPorDefecto =="listaDesplegable")){
+//aumentamos en uno el contador de listas desplegables
+contadorListaDesplegable=contadorListaDesplegable+1;
+//si se cumplen estas dos condiciones, dibujamos un campo tipo <select> lista desplegable auxiliar,que luego se poblará dinámicamente
+var lista14 = document.createElement("select");
+//Agregamos nombre y id a la lista teniendo en cuenta el contador, por si llegan a existir muchas listas en el form
+lista14.name = "lista"+contadorListaDesplegable;
+lista14.id= "lista"+contadorListaDesplegable;
+//Agregamos clase al select
+lista14.setAttribute('class', 'd-sm-flex');
+}
+
+
+
+
                                 input14.setAttribute('type', arregloOrdenadoJson[i14].tipo);
+
+
+                           
+                                
+
+
+
+
+
+
+
+
+
+
 
                                 //input2.name = "caja"+i2; --DESCOMENTARIRAR SI SE QUIERE UN NAME GENERICO
                                 //input2.id="caja"+i2;   --DESCOMENTARIAR SI SE QUIERE UN ID GENERICO
@@ -907,6 +943,10 @@ if(ordenGrupo != 10){
                                 newDiv14.appendChild(input14); //añade la caja de texto al div creado recientemente. 
                             //se crearán tantos div como el número que se haya ingresado en la caja de texto
 
+                            //AGREGAMOS EL CAMPO ESPECIAL AL DIV EN CASO DE EXISTIR LISTAS DESPLEGABLES
+                            if((arregloOrdenadoJson[i14].tipo=="NUMBER") && (arregloOrdenadoJson[i14].valorPorDefecto =="listaDesplegable")){
+                                newDiv14.appendChild(lista14);
+                            }
 
 
 
