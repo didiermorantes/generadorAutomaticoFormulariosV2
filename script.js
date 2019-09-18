@@ -513,8 +513,7 @@ var datoLeido=0;
         }
     
     
-    
-    
+
      });
     
     
@@ -977,7 +976,7 @@ else{
     
     
     
-     });
+     });//fin function(myJson14)
     
     
      }
