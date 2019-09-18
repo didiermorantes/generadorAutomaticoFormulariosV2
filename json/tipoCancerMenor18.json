@@ -1,0 +1,21 @@
+{
+    "tipoCancer":[
+      {"valor":"1","nombre":"Leucemia Linfoide Aguda"},
+      {"valor":"2","nombre":"Leucemia Mieloide Aguda"},
+      {"valor":"3","nombre":"Otras Leucemias"},
+      {"valor":"4","nombre":"Linfomas y Neoplasias Reticuloendoteliales"},
+      {"valor":"5","nombre":"Tumores del Sistema Nervioso Central"},
+      {"valor":"6","nombre":"Neuroblastoma y otros tumores de celulas nerviosas periféricas"},
+      {"valor":"7","nombre":"Retinoblastoma"},
+      {"valor":"8","nombre":"Tumores Renales"},
+      {"valor":"9","nombre":"Tumores Hepáticos"},
+      {"valor":"10","nombre":"Tumores Óseos Malignos"},
+      {"valor":"11","nombre":"Sarcomas de Tejidos Blandos y Extraóseos"},
+      {"valor":"12","nombre":"Tumores Germinales, Trofoblásticos, y otros Gonadales"},
+      {"valor":"13","nombre":"Tumores Epiteliales Malignos y Melanoma"},
+      {"valor":"10","nombre":"Otras Neoplasias Malignas No Especificadas"}
+    ]
+  
+
+  
+  }

@@ -973,7 +973,9 @@ else{
           
         }//fin for
     
-    
+    //guardamos el valor de la cantidad de listas desplegables del formulario en el web storage
+    // Store
+localStorage.totalListasDesplegables = contadorListaDesplegable;
     
     
      });//fin function(myJson14)
