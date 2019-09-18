@@ -10,3 +10,4 @@
 10. Para listas desplegables, como es el caso de "cancer en menores de 18" es necesario agregar un nuevo campo que acompañe al campo original. Esté campo tendría que ser dibujado por programación e insertado en el DOM, de acuerdo a la selección que se haga del primer campo, que normalmente puede ser del tipo número. En otras palabras, el campo original cuenta con números , de manera que el segundo campo muestre el nombre de ese número
 11. El campo tipo num debe llamar una función que limite la entrada tipo número  min max<input number> de acuerdo a la cantidad de elementos que tenga el campo auxiliar Generado
 12. El campo auxiliar generado debe generarse si el tipo de datos es número y si el campo "valorPorDefecto" dice "listaDesplegable"
+13. El campo auxiliar generado se llena con datos provenientes de un json. Este json se expone como servicio para ser consumido

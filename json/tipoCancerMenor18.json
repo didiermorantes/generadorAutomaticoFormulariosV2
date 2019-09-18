@@ -1,19 +1,19 @@
 {
     "tipoCancer":[
-      {"valor":"1","nombre":"Leucemia Linfoide Aguda"},
-      {"valor":"2","nombre":"Leucemia Mieloide Aguda"},
-      {"valor":"3","nombre":"Otras Leucemias"},
-      {"valor":"4","nombre":"Linfomas y Neoplasias Reticuloendoteliales"},
-      {"valor":"5","nombre":"Tumores del Sistema Nervioso Central"},
-      {"valor":"6","nombre":"Neuroblastoma y otros tumores de celulas nerviosas periféricas"},
-      {"valor":"7","nombre":"Retinoblastoma"},
-      {"valor":"8","nombre":"Tumores Renales"},
-      {"valor":"9","nombre":"Tumores Hepáticos"},
-      {"valor":"10","nombre":"Tumores Óseos Malignos"},
-      {"valor":"11","nombre":"Sarcomas de Tejidos Blandos y Extraóseos"},
-      {"valor":"12","nombre":"Tumores Germinales, Trofoblásticos, y otros Gonadales"},
-      {"valor":"13","nombre":"Tumores Epiteliales Malignos y Melanoma"},
-      {"valor":"10","nombre":"Otras Neoplasias Malignas No Especificadas"}
+      {"valor":"1","nombre":"1: Leucemia Linfoide Aguda"},
+      {"valor":"2","nombre":"2: Leucemia Mieloide Aguda"},
+      {"valor":"3","nombre":"3: Otras Leucemias"},
+      {"valor":"4","nombre":"4: Linfomas y Neoplasias Reticuloendoteliales"},
+      {"valor":"5","nombre":"5: Tumores del Sistema Nervioso Central"},
+      {"valor":"6","nombre":"6: Neuroblastoma y otros tumores de celulas nerviosas periféricas"},
+      {"valor":"7","nombre":"7: Retinoblastoma"},
+      {"valor":"8","nombre":"8: Tumores Renales"},
+      {"valor":"9","nombre":"9: Tumores Hepáticos"},
+      {"valor":"10","nombre":"10: Tumores Óseos Malignos"},
+      {"valor":"11","nombre":"11: Sarcomas de Tejidos Blandos y Extraóseos"},
+      {"valor":"12","nombre":"12: Tumores Germinales, Trofoblásticos, y otros Gonadales"},
+      {"valor":"13","nombre":"13: Tumores Epiteliales Malignos y Melanoma"},
+      {"valor":"10","nombre":"14: Otras Neoplasias Malignas No Especificadas"}
     ]
   
 
