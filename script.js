@@ -546,7 +546,7 @@ var datoLeido=0;
      var contadorListaDesplegable=0;//variable para almacenar la cantidad de listas desplegables
 
      
-     fetch('https://vitalsaludem.com/services/api_db/tipoEvento/leerLista.php')
+     fetch('https://vitalsaludem.com/services2/api_db/tipoEvento/leerLista.php')
      .then(function(response14) {
          //devuelve un objeto promise conteniendo la respuesta, el objeto response
              //response es una respuesta http y no el archivo json, por tanto, usamos el método json() para extraer el contenido
@@ -1316,7 +1316,8 @@ var myInit = {method: 'POST',
      .then(function(response6) {
          //devuelve un objeto promise conteniendo la respuesta, el objeto response
 
-         
+         //Una petición promise fetch() será rechazada con TypeError cuando se encuentre un error de red, aunque esto normalmente significa problemas de permisos o similares — por ejemplo, un 404 no constituye un error de red.
+         //solo verifica si hay error de red,o similar. Si contesta con error de CORS si hay respuesta
          if (!response6.ok) { //si no hay respuesta 
              console.log("La respuesta no fue satisfactoria");
             console.log("HTTP status " + response6.status);

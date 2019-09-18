@@ -46,33 +46,51 @@ var nombresListasDesplegables = [];
          tipoCancer.nombre="posicion69";
      
      
-     var options2="";
-     options2 += '<option value="' +tipoCancer.valor +'">' +tipoCancer.nombre +'</option>';
-     nombresListasDesplegables[1].innerHTML = options2;
+     var options18="";
+     options18 += '<option value="' +tipoCancer.valor +'">' +tipoCancer.nombre +'</option>';
+     nombresListasDesplegables[1].innerHTML = options18;
 
 
      
 //PROCESO PARA LEER EL JSON QUE TIENE LOS TIPÓS DE CANCER
-var misCabeceras = new Headers(
-    {
-        'Access-Control-Allow-Origin':'*',
-        'Content-Type': 'multipart/form-data'
-    }
+var misCabeceras = new Headers();
 
-);
+misCabeceras.append("Content-Type", "application/json");
+misCabeceras.append("Access-Control-Allow-Origin", "*");
+misCabeceras.append('Access-Control-Allow-Headers','*');
+misCabeceras.append('Access-Control-Allow-Methods','GET');
+
+
+
 var miInit = { method: 'GET',
                headers: misCabeceras,
                mode: 'cors',
                cache: 'default' };
 
-
+               var myRequest = new Request('https://vitalsaludem.com/services2/api_db/listasDesplegables/leerListasDesplegables.php',miInit);
+               var myContentType = myRequest.headers.get('Content-Type');
                     //fetch toma como argumento la ruta del recurso que quiere obtener
                     //fetch('json/personas.json')  --DESCOMENTARIAR SI SE USA EL JSON PERSONAS
-                    fetch('json/tipoCancerMenor18.json',miInit)
+                    fetch('https://vitalsaludem.com/services2/api_db/listasDesplegables/leerListasDesplegables.php',miInit)
                     .then(function(response18) {
-                        //devuelve un objeto promise conteniendo la respuesta, el objeto response
+
+                        //si no hay respuesta 
+                        if(!response18.ok){ 
+
+                            console.log('No se pudo resolver la promesa');
+                            console.log("La respuesta no fue satisfactoria");
+                            console.log("HTTP status " + response18.status);
+                            console.log("Contenido de respuesta: "+JSON.stringify(response18)); // mostramos el estado
+          
+                            console.log("La cabecera solicitada de contenido fue: "+myContentType);
+  
+                        }
+                        else{
+                                          //devuelve un objeto promise conteniendo la respuesta, el objeto response
                             //response es una respuesta http y no el archivo json, por tanto, usamos el método json() para extraer el contenido
-                        return response18.json();
+                            return response18.json();   
+                        }
+    
                     })
                     .then(function(myJson18) {
                     
@@ -87,21 +105,28 @@ var miInit = { method: 'GET',
                         console.log(myJson18);
                     // console.log('La cantidad de elementos que tiene el json en el objeto "personas" es : '+datoLeido);    ---DESCOMENTARIAR SI SE USA EL JSON PERSONAS
                     console.log('La cantidad de elementos que tiene el json en el objeto "tipoCancer" es : '+datoLeido18);
+                    alert("EL json obtenido fue: ");
                     //stringify convierte el objeto en json para ser visualizado por el alert, o si no  solo se observa object object
-                    alert(JSON.stringify(myJson18));
+                    alert("EL json obtenido fue: "+JSON.stringify(myJson18));
                     // alert('La cantidad de elementos que tiene el json en el objeto "personas" es : '+datoLeido);    --DESCOMENTARIAR SI SE USA EL JSON PERSONAS
                     alert('La cantidad de elementos que tiene el json en el objeto "tipoCancer" es : '+datoLeido18);
 
                             //recorremos el json
-            for(var i18=0; i2<datoLeido18;i18++){
+            for(var i18=0; i18<datoLeido18;i18++){
                         
     //rellenamos la lista desplegable nueva con la información obtenida del json
-                options2 += '<option value="' +myJson18.tipoCancer[i18].valor +'">' +myJson18.tipoCancer[i18].nombre +'</option>';
-                nombresListasDesplegables[1].innerHTML = options2;
+                options18 += '<option value="' +myJson18.tipoCancer[i18].valor +'">' +myJson18.tipoCancer[i18].nombre +'</option>';
+                nombresListasDesplegables[1].innerHTML = options18;
                  }//fin for
 
                 
-                    }); //fin  //then(function(myJson18)
+                    })//fin  //then(function(myJson18)
+                    .catch(function(error18) {
+                        console.log('Hubo un problema con la petición Fetch:' + error18.message);
+                        console.log("La cabecera solicitada de contenido fue: "+myContentType);
+                      });
+                    
+                    
 
 
 
