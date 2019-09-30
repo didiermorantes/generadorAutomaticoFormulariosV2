@@ -29,6 +29,7 @@ function poblarListaTipoCancerMenor18(){
         // Code for localStorage/sessionStorage.
 
         var miListaTipoCancerMenor18 = document.getElementById('TIPO_CA');
+        var miListaTipoCancerMenor18_datos = document.getElementById('lista1');
      
 
 //recuperamos el total de listas deplegables.
@@ -154,7 +155,7 @@ var miInit = { method: 'GET',
                       });
 
 
-                      //DESPUES DE OBTGENER LOS DATOS Y SABER QUE NO GENERÓ ERROR, VALIDAMOS SI LO QUE SE ESCRIBA EN LA CAJA NUMBER ESTÁ DENTRO DEL RANGO
+                      //DESPUES DE OBTENER LOS DATOS Y SABER QUE NO GENERÓ ERROR, VALIDAMOS SI LO QUE SE ESCRIBA EN LA CAJA NUMBER ESTÁ DENTRO DEL RANGO
                      //convierto a entero los datos tipo texto para validacion
     if((miListaTipoCancerMenor18.value<1) || (miListaTipoCancerMenor18.value>totalDatoLeido18)){
         alert('Digite un valor entre 1 y '+ totalDatoLeido18);
@@ -168,6 +169,12 @@ var miInit = { method: 'GET',
         miListaTipoCancerMenor18.focus();// no podemos dejar el foco en el campo porque volveria 
         miListaTipoCancerMenor18.value=1;
     }//fin if
+    else{
+//si no hay error en el rango, correlacionamos el valor seleccionado con la lista desplegable generada
+
+miListaTipoCancerMenor18_datos.value = miListaTipoCancerMenor18.value;
+
+    }
                     
 
 
@@ -195,6 +202,21 @@ var miInit = { method: 'GET',
 
 
 }
+/*
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+*/
+
+function correlacionarListaDesplegable(){
+
+    var miListaTipoCancerMenor18_datos = document.getElementById('lista1');
+    var miListaTipoCancerMenor18 = document.getElementById('TIPO_CA');
+
+    miListaTipoCancerMenor18.value=miListaTipoCancerMenor18_datos.value;
+
+}
+
 /*
 
 -----------------------------------------------------------------------------------------------------------------------------------------------

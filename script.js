@@ -852,6 +852,8 @@ lista14.name = "lista"+contadorListaDesplegable;
 lista14.id= "lista"+contadorListaDesplegable;
 //Agregamos clase al select
 lista14.setAttribute('class', 'd-sm-flex');
+//Agregamos evento
+lista14.setAttribute('onchange', 'correlacionarListaDesplegable()');
 }
 
 
