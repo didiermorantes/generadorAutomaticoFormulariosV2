@@ -22,6 +22,34 @@ function validaVacio(miCampo){
 
 }
 
+
+function validaFechaSuperior(miCampo){
+
+
+    var currentTime = new Date();
+    // Comparamos solo las fechas => no las horas!!
+    currentTime.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
+
+    var fechaFormulario =new Date(miCampo.value); //convertimos la fecha del formulario a un tipo que se pueda comparar con la fecha actual
+
+
+ 
+    if( fechaFormulario > currentTime ){
+        alert('La fecha digitada no puede ser mayor a la fecha del sistema');
+        miCampo.value=currentTime;
+        miCampo.focus();
+                //retornamos 1 indicando que la fecha es superior
+                return 1;
+
+    }
+    else{
+         //de lo contrario retornamos cero
+        return 0;
+    }
+
+}
+
+
 function valida_si_no(miCampo){
 
     if(miCampo.value<0 || miCampo.value>2){
@@ -56,7 +84,7 @@ function valida_1_2(miCampo,miMensaje){
 
 }
 
-function valida_1_2_3(miCampo,miMensaje){
+function valida_1_3(miCampo,miMensaje){
     if(miCampo.value<0 || miCampo.value>3){
         alert('Digite un valor entre 1 y 3');
         alert(miMensaje);
@@ -96,90 +124,109 @@ function validaTipoCancer(){
 
     //si ambas validaciones retornan cero significa que los datos ingresados son validos
     if(miValidaVacio==0 && miValidaValor==0){
-    //el dato no es vacio y está dentro del rango de 1  y 3
-        //HABILITAMOS Y DESHABILITAMOS CAMPOS SEGÚN SIVIGILA ESCRITORIO
-
-        //variables cáncer cuello uterino
-        var miFecTomaE = document.getElementById('FEC_TOMA_E');
-        var miFecResEx = document.getElementById('FEC_RES_EX');
-        var miBiopExoce = document.getElementById('BIOP_EXOCE');
-        var miResBExoc = document.getElementById('RES_B_EXOC');
-        var miGradoHist = document.getElementById('GRADO_HIST');
-        var miBiopEndoc = document.getElementById('BIOP_ENDOC');
-        var miResBAden = document.getElementById('RES_B_ADEN');
-        var miResBHist = document.getElementById('RES_B_HIST');
-
-
-
-//variables cáncer de mama
-        var miFecProCo = document.getElementById('FEC_PRO_CO');
-        var miFecResBi = document.getElementById('FEC_RES_BI');
-        var miResBiops9 = document.getElementById('RES_BIOPS9');
-        var miGradHisto = document.getElementById('GRAD_HISTO');
-
-        //validamos el tipo de cancer para inhabilitar los demás controles
-        if(miTipoCancer.value  ==1){
-           //deshabilitamos campos de cancer de cuello uterino
-            miFecTomaE.disabled=true;
-            miFecResEx.disabled=true;
-            miBiopExoce.disabled=true;
-            miResBExoc.disabled=true;
-            miGradoHist.disabled=true;
-            miBiopEndoc.disabled=true;
-            miResBAden.disabled=true;
-            miResBHist.disabled=true;
-
-
-            //habilitamos campos de cáncer de mama
-            miFecProCo.disabled=false;
-            miFecResBi.disabled=false;
-            miResBiops9.disabled=false;
-            miGradHisto.disabled=false;
-
-
-        }
-        else if(miTipoCancer.value  ==2){
-          //deshabilitamos campos de cancer de mama
-            miFecProCo.disabled=true;
-            miFecResBi.disabled=true;
-            miResBiops9.disabled=true;
-            miGradHisto.disabled=true;
-
-            //habilitamos campos de cancer de cuello uterino
-            miFecTomaE.disabled=false;
-            miFecResEx.disabled=false;
-            miBiopExoce.disabled=false;
-            miResBExoc.disabled=false;
-            miGradoHist.disabled=false;
-            miBiopEndoc.disabled=false;
-            miResBAden.disabled=false;
-            miResBHist.disabled=false;       
-
-        }
-        else if(miTipoCancer.value  ==3){
-
-            //habilitamos campos de cáncer de mama
-            miFecProCo.disabled=false;
-            miFecResBi.disabled=false;
-            miResBiops9.disabled=false;
-            miGradHisto.disabled=false;
-            //habilitamos campos de cancer de cuello uterino
-            miFecTomaE.disabled=false;
-            miFecResEx.disabled=false;
-            miBiopExoce.disabled=false;
-            miResBExoc.disabled=false;
-            miGradoHist.disabled=false;
-            miBiopEndoc.disabled=false;
-            miResBAden.disabled=false;
-            miResBHist.disabled=false;  
-
-             }
+//invocamos la función para habilitar los campos de acuerdo a la seleccion
+        habilitaCamposTipoCancer(miTipoCancer);
+    
     }//fin if
 
 
 
 
 }//fin validaTipoCancer
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+funcion para Habilita campos tipo cancer
+
+*/
+
+function habilitaCamposTipoCancer(miCampo){
+
+
+//el dato no es vacio y está dentro del rango de 1  y 3
+    //HABILITAMOS Y DESHABILITAMOS CAMPOS SEGÚN SIVIGILA ESCRITORIO
+
+    //variables cáncer cuello uterino
+    var miFecTomaE = document.getElementById('FEC_TOMA_E');
+    var miFecResEx = document.getElementById('FEC_RES_EX');
+    var miBiopExoce = document.getElementById('BIOP_EXOCE');
+    var miResBExoc = document.getElementById('RES_B_EXOC');
+    var miGradoHist = document.getElementById('GRADO_HIST');
+    var miBiopEndoc = document.getElementById('BIOP_ENDOC');
+    var miResBAden = document.getElementById('RES_B_ADEN');
+    var miResBHist = document.getElementById('RES_B_HIST');
+
+
+
+//variables cáncer de mama
+    var miFecProCo = document.getElementById('FEC_PRO_CO');
+    var miFecResBi = document.getElementById('FEC_RES_BI');
+    var miResBiops9 = document.getElementById('RES_BIOPS9');
+    var miGradHisto = document.getElementById('GRAD_HISTO');
+
+    //validamos el tipo de cancer para inhabilitar los demás controles
+    if(miCampo.value  ==1){
+       //deshabilitamos campos de cancer de cuello uterino
+        miFecTomaE.disabled=true;
+        miFecResEx.disabled=true;
+        miBiopExoce.disabled=true;
+        miResBExoc.disabled=true;
+        miGradoHist.disabled=true;
+        miBiopEndoc.disabled=true;
+        miResBAden.disabled=true;
+        miResBHist.disabled=true;
+
+
+        //habilitamos campos de cáncer de mama
+        miFecProCo.disabled=false;
+        miFecResBi.disabled=false;
+        miResBiops9.disabled=false;
+        miGradHisto.disabled=false;
+
+
+    }
+    else if(miCampo.value  ==2){
+      //deshabilitamos campos de cancer de mama
+        miFecProCo.disabled=true;
+        miFecResBi.disabled=true;
+        miResBiops9.disabled=true;
+        miGradHisto.disabled=true;
+
+        //habilitamos campos de cancer de cuello uterino
+        miFecTomaE.disabled=false;
+        miFecResEx.disabled=false;
+        miBiopExoce.disabled=false;
+        miResBExoc.disabled=false;
+        miGradoHist.disabled=false;
+        miBiopEndoc.disabled=false;
+        miResBAden.disabled=false;
+        miResBHist.disabled=false;       
+
+    }
+    else if(miCampovalue  ==3){
+
+        //habilitamos campos de cáncer de mama
+        miFecProCo.disabled=false;
+        miFecResBi.disabled=false;
+        miResBiops9.disabled=false;
+        miGradHisto.disabled=false;
+        //habilitamos campos de cancer de cuello uterino
+        miFecTomaE.disabled=false;
+        miFecResEx.disabled=false;
+        miBiopExoce.disabled=false;
+        miResBExoc.disabled=false;
+        miGradoHist.disabled=false;
+        miBiopEndoc.disabled=false;
+        miResBAden.disabled=false;
+        miResBHist.disabled=false;  
+
+         }
+
+
+}
 
 
 /*
@@ -191,21 +238,7 @@ VALIDA FEC_PRO_CO  _ CÁNCER DE MAMA Y CUELLO UTERINO
 function validaFechaProCo(){
 
     var miFecProCo = document.getElementById('FEC_PRO_CO');
-
-    var currentTimeProCo = new Date();
-    // Comparamos solo las fechas => no las horas!!
-    currentTimeProCo.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
-
-    var fechaFormularioProCo =new Date(miFecProCo.value); //convertimos la fecha del formulario a un tipo que se pueda comparar con la fecha actual
-
-
- 
-    if( fechaFormularioProCo > currentTimeProCo ){
-        alert('La fecha digitada no puede ser mayor a la fecha del sistema');
-        miFecProCo.focus();
-        miFecProCo.value=currentTimeProCo;
-    }
-
+    validaFechaSuperior(miFecProCo);
 
   }//fin validFechaExam
 
@@ -220,20 +253,7 @@ VALIDA FEC_RES_BI  _ CÁNCER DE MAMA Y CUELLO UTERINO
 function validaFechaResult(){
 
     var miFecResBi = document.getElementById('FEC_RES_BI');
-
-    var currentTimeResBi = new Date();
-    // Comparamos solo las fechas => no las horas!!
-    currentTimeResBi.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
-
-    var fechaFormularioResBi =new Date(miFecResBi.value); //convertimos la fecha del formulario a un tipo que se pueda comparar con la fecha actual
-
-
- 
-    if( fechaFormularioResBi > currentTimeResBi ){
-        alert('La fecha digitada no puede ser mayor a la fecha del sistema');
-        miFecResBi.focus();
-        miFecResBi.value=currentTimeResBi;
-    }
+    validaFechaSuperior(miFecResBi);
 
 
   }//fin validaFechaResult
@@ -248,14 +268,14 @@ VALIDA RES_BIOPS9
 function validaResultBiopsia(){
     var miResBiops = document.getElementById('RES_BIOPS9');
 
-    if(miResBiops.value<0 || miResBiops.value>2){
-        alert('Digite un valor entre 1 y 2');
-        alert('1 Carcinoma Ductal.\n 2 Carcinoma Lobulillar.');
-        
-        miResBiops.value="Diligencie Datos";
-        miResBiops.focus();
-    }
+    var miTexto = "1 Carcinoma Ductal.\n 2 Carcinoma Lobulillar.";
 
+    //validamos campo vacio
+    validaVacio(miResBiops);
+
+    //validamos valor entre 1 y 2
+    valida_1_2(miResBiops,miTexto);
+    
 
 }//fin validaResultBiopsia
 
@@ -271,13 +291,14 @@ VALIDA GRAD_HISTO
 function validaGradHisto(){
     var miGradHisto = document.getElementById('GRAD_HISTO');
 
-    if(miGradHisto.value<0 || miGradHisto.value>3){
-        alert('Digite un valor entre 1 y 3');
-        alert('1 In Situ.\n 2 Infiltrante.\n 3 No Indicado');
-        
-        miGradHisto.value="Diligencie Datos";
-        miGradHisto.focus();
-    }
+    var miTexto = "1 In Situ.\n2 Infiltrante.\n3 No Indicado.";
+
+    //validamos campo vacio
+    validaVacio(miGradHisto);
+
+    //validamos valor entre 1 y 3
+    valida_1_3(miGradHisto,miTexto);
+    
 
 
 }//fin validaGradHisto
@@ -296,21 +317,7 @@ VALIDA FEC_TOMA_E
 
 function validaFechaTomaE(){
     var miFecTomaE = document.getElementById('FEC_TOMA_E');
-
-
-    var currentTimeFecTomaE = new Date();
-    // Comparamos solo las fechas => no las horas!!
-    currentTimeFecTomaE.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
-
-    var fechaFormularioFecTomaE =new Date(miFecTomaE.value); //convertimos la fecha del formulario a un tipo que se pueda comparar con la fecha actual
-
-
- 
-    if( fechaFormularioFecTomaE > currentTimeFecTomaE ){
-        alert('La fecha digitada no puede ser mayor a la fecha del sistema');
-        miFecTomaE.focus();
-        miFecTomaE.value=currentTimeFecTomaE;
-    }
+    validaFechaSuperior(miFecTomaE);
 
 
 }//fin validaFechaTomaE
@@ -326,21 +333,7 @@ VALIDA FEC_RES_EX
 
 function validaFechaResEx(){
     var miFecResEx = document.getElementById('FEC_RES_EX');
-
-
-    var currentTimeFecResEx = new Date();
-    // Comparamos solo las fechas => no las horas!!
-    currentTimeFecResEx.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
-
-    var fechaFormularioFecResEx =new Date(miFecResEx.value); //convertimos la fecha del formulario a un tipo que se pueda comparar con la fecha actual
-
-
- 
-    if( fechaFormularioFecResEx > currentTimeFecResEx ){
-        alert('La fecha digitada no puede ser mayor a la fecha del sistema');
-        miFecResEx.focus();
-        miFecResEx.value=currentTimeFecResEx;
-    }
+    validaFechaSuperior(miFecResEx);
 
 
 }//fin validaFechaResEx
