@@ -992,8 +992,12 @@ generaFooter();
 
 /* función que genera el footer dinamicamente*/
 function generaFooter(){
-    var newFooter= document.createElement("footer"); 
-    newFooter.setAttribute('class', 'text-center');
+    var newFooter= document.createElement("div"); 
+    newFooter.setAttribute('class', 'd-sm-flex ');
+
+                                    // añade el elemento creado y su contenido al DOM 
+                                    var currentDiv = document.getElementById("div"); 
+                                    document.body.insertBefore(newFooter, currentDiv); 
 
     var newImg = document.createElement("img");
     newImg.setAttribute('src', 'img/footer.jpg');
