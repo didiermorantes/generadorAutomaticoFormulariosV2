@@ -14,7 +14,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+    <header class="text-center">
+        <img src="img/header.jpg" class="img-fluid" alt="Responsive image">
+      </header>
+
     <form id="myForm" action="" method="POST">
+ <!--   
             <label for="dato">Ingrese Cantidad de Cajas a Crear:</label>
             <input type="number" name="dato" id="dato">
             <input type="button" onclick="generaCajas()" value="enviar">
@@ -47,9 +53,9 @@
       <input type="button" onclick="leerBDCaja()" value="procesar">
 
       <p id="demo"></p>
-
+-->   
       <hr/>
-      <select id="miListaEventosEspecificos" name="miListaEventosEspecificos" onchange="leerBDListaEspecificos()">
+      Seleccione un Evento de la Lista: <select id="miListaEventosEspecificos" name="miListaEventosEspecificos" onchange="leerBDListaEspecificos()">
         <option value="0"></option>
         <option value="79">155:Cáncer de Mama y Cuello Uterino</option>
         <option value="1">310:Fiebre Amarilla</option>
@@ -60,6 +66,13 @@
       <p id="demo2"></p>
 
     </form>
+
+    <footer class="text-center">
+
+        <img src="img/footer.jpg" class="img-fluid" alt="Responsive image">
+
+      </footer>
+
     <!-- las funciones de validación de campos deben ubicarse al final, de manera que los objetos ya se encuentren en el DOM-->
     <script type="text/javascript" src="./funcionesValidaCampos.js"></script> 
 </body>

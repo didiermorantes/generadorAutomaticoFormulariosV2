@@ -934,7 +934,7 @@ if(ordenGrupo != 10){
                                 //asignamos un color a los div pares y otro a los impares
                                     if(i14%2==0){
                                         //color azul turquesa a los pares
-                                        newDiv14.setAttribute('class','p-2 bg-light '+claseOrdenGrupo); //añadimos el orden flex
+                                        newDiv14.setAttribute('class','p-2 bg-info '+claseOrdenGrupo); //añadimos el orden flex
                                     }
                                     else{
                                         //color amarillo a los impares
