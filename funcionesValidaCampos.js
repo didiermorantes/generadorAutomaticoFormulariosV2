@@ -1,6 +1,24 @@
-function valida1_2(){
+//FUNCIONES GENERICAS
 
+function validaVacio(miCampo){
+    
+    if ( miCampo.value.length == 0 ||  miCampo.value  =='' ||  miCampo.value ==null || /^\\s+$/.test( miCampo.value )) {
+        alert('Diligencie Datos.No se pueden dejar campos vacios.');
+        miCampo.focus();
+        miCampo.value='Diligencie datos';
+    }//fin if
 
+}
+
+function valida_1_2(miCampo){
+
+    if(miCampo.value<0 || miCampo.value>2){
+        alert('Digite un valor entre 1 y 2');
+        alert('1 Si.\n 2 No.');
+        
+        miCampo.value="Diligencie Datos";
+        miCampo.focus();
+    }
 }
 
 /*
@@ -286,13 +304,13 @@ VALIDA BIOP_EXOCE
 function validaBiopExocervix(){
     var miBiopExocer = document.getElementById('BIOP_EXOCE');
 
-    if(miBiopExocer.value<0 || miBiopExocer.value>2){
-        alert('Digite un valor entre 1 y 2');
-        alert('1 Si.\n 2 No.');
-        
-        miBiopExocer.value="Diligencie Datos";
-        miBiopExocer.focus();
-    }
+    //validamos campo vacio
+    validaVacio(miBiopExocer);
+
+    //validamos valor entre 1 y 2
+    valida_1_2(miBiopExocer);
+
+
 
 }
 
