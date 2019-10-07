@@ -978,6 +978,10 @@ else{
     //guardamos el valor de la cantidad de listas desplegables del formulario en el web storage
     // Store
 localStorage.totalListasDesplegables = contadorListaDesplegable;
+
+//generamos el footer dinamicamente
+
+generaFooter();
     
     
      });//fin function(myJson14)
@@ -986,8 +990,19 @@ localStorage.totalListasDesplegables = contadorListaDesplegable;
      }
 
 
+/* función que genera el footer dinamicamente*/
+function generaFooter(){
+    var newFooter= document.createElement("footer"); 
+    newFooter.setAttribute('class', 'text-center');
+
+    var newImg = document.createElement("img");
+    newImg.setAttribute('src', 'img/footer.jpg');
+    newImg.setAttribute('class', 'img-fluid');
 
 
+    newFooter.appendChild(newImg); //añade la caja de img al footer creado recientemente. 
+
+}
 
 
 
