@@ -10,7 +10,7 @@ function validaVacio(miCampo,miMensaje){
     if ( miCampo.value.length == 0 ||  miCampo.value  =='' ||  miCampo.value ==null || /^\\s+$/.test( miCampo.value )) {
         alert('Diligencie Datos.No se pueden dejar campos vacios.');
         alert(miMensaje);
-        miCampo.value='Diligencie datos Válidos';
+        miCampo.value='Diligencie datos Válidos.';
         miCampo.focus();
         //retornamos 1 indicando que el campo estaba vacio
         return 1;
@@ -36,7 +36,7 @@ function validaFechaSuperior(miCampo){
 
  
     if( fechaFormulario > currentTime ){
-        alert('La fecha digitada no puede ser mayor a la fecha del sistema');
+        alert('La fecha digitada no puede ser mayor a la fecha del sistema.');
         miCampo.value=currentTime;
         miCampo.focus();
                 //retornamos 1 indicando que la fecha es superior
@@ -54,10 +54,10 @@ function validaFechaSuperior(miCampo){
 function valida_si_no(miCampo){
 
     if(miCampo.value<0 || miCampo.value>2){
-        alert('Digite un valor entre 1 y 2');
+        alert('Digite un valor entre 1 y 2.');
         alert('1 Si.\n2 No.');
         
-        miCampo.value="Diligencie Datos Válidos";
+        miCampo.value="Diligencie Datos Válidos.";
         miCampo.focus();
         //retornamos 1 indicando que los datos no estaban en el rango
         return 1;
@@ -69,10 +69,10 @@ function valida_si_no(miCampo){
 
 function valida_1_2(miCampo,miMensaje){
     if(miCampo.value<0 || miCampo.value>2){
-        alert('Digite un valor entre 1 y 2');
+        alert('Digite un valor entre 1 y 2.');
         alert(miMensaje);
         
-        miCampo.value="Diligencie Datos Válidos";
+        miCampo.value="Diligencie Datos Válidos.";
         miCampo.focus();
                 //retornamos 1 indicando que los datos no estaban en el rango
                 return 1;
@@ -87,10 +87,10 @@ function valida_1_2(miCampo,miMensaje){
 
 function valida_1_3(miCampo,miMensaje){
     if(miCampo.value<0 || miCampo.value>3){
-        alert('Digite un valor entre 1 y 3');
+        alert('Digite un valor entre 1 y 3.');
         alert(miMensaje);
         
-        miCampo.value="Diligencie Datos Válidos";
+        miCampo.value="Diligencie Datos Válidos.";
         miCampo.focus();
                         //retornamos 1 indicando que los datos no estaban en el rango
                         return 1;
@@ -351,16 +351,62 @@ VALIDA BIOP_EXOCE
 function validaBiopExocervix(){
     var miBiopExocer = document.getElementById('BIOP_EXOCE');
     var miTexto = "1 Si.\n2 No.";
+    var miValidaVacio =1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+    var miValidaValor=1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+
 
     //validamos campo vacio
-    validaVacio(miBiopExocer,miTexto);
+    miValidaVacio=validaVacio(miBiopExocer,miTexto);
 
     //validamos valor entre 1 y 2
-    valida_si_no(miBiopExocer);
+    miValidaValor=valida_si_no(miBiopExocer);
+
+
+        //si ambas validaciones retornan cero significa que los datos ingresados son validos
+        if(miValidaVacio==0 && miValidaValor==0){
+            //invocamos la función para habilitar los campos de acuerdo a la seleccion
+                    habilitaCamposBiopExocer(miBiopExocer);
+                
+                }//fin if
 
 
 
 }
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+funcion para Habilita campos BiopExocer
+
+*/
+
+function habilitaCamposBiopExocer(miCampo){
+
+
+    //el dato no es vacio y está dentro del rango de 1  y 2
+        //HABILITAMOS Y DESHABILITAMOS CAMPOS SEGÚN SIVIGILA ESCRITORIO
+    
+ 
+        var miResultadoExoc = document.getElementById('RES_B_EXOC');
+
+    
+        //validamos el valor, si es uno (1=si) habilitamos RES_B_EXOC
+        //validamos el valor, si es dos (2=no) inhabilitamos RES_B_EXOC
+        if(miCampo.value  ==1){
+           //habilitamos RES_B_EXOC
+           miResultadoExoc.disabled=false;    
+    
+        }
+        else if(miCampo.value  ==2){
+          //deshabilitamos RES_B_EXOC
+          miResultadoExoc.disabled=true; 
+           
+        }
+
+    
+    
+    }//fin funcion habilitaCamposBiopExocer
 
 
 
@@ -372,7 +418,7 @@ VALIDA RES_B_EXOC
 */
 function validaResExoc(){
     var miResExoc = document.getElementById('RES_B_EXOC');
-    var miTexto = "1=LEI AG\n2=Carcinoma Escamocelular";
+    var miTexto = "1=LEI AG.\n2=Carcinoma Escamocelular.";
 
     //validamos campo vacio
     validaVacio(miResExoc,miTexto);
@@ -381,6 +427,138 @@ function validaResExoc(){
     valida_1_2(miResExoc,miTexto);
 
 }
+
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+VALIDA GRADO_HIST
+*/
+
+function validaGradoHist(){
+    var miGradoHist = document.getElementById('GRADO_HIST');
+
+    var miTexto = "1 In Situ.\n2 Infiltrante.\n3 No Indicado.";
+
+    //validamos campo vacio
+    validaVacio(miGradoHist,miTexto);
+
+    //validamos valor entre 1 y 3
+    valida_1_3(miGradoHist,miTexto);
+    
+
+
+}//fin validaGradoHist
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA BIOP_ENDOC
+
+*/
+
+function validaBiopEndocervix(){
+    
+
+    var miBiopEndocer = document.getElementById('BIOP_ENDOC');
+    var miTexto = "1 Si.\n2 No.";
+    var miValidaVacio =1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+    var miValidaValor=1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+
+
+    //validamos campo vacio
+    miValidaVacio=validaVacio(miBiopEndocer,miTexto);
+
+    //validamos valor entre 1 y 2
+    miValidaValor=valida_si_no(miBiopEndocer);
+
+
+        //si ambas validaciones retornan cero significa que los datos ingresados son validos
+        if(miValidaVacio==0 && miValidaValor==0){
+            //invocamos la función para habilitar los campos de acuerdo a la seleccion
+                    habilitaCamposBiopEndocer(miBiopEndocer);
+                
+                }//fin if
+
+
+
+
+
+}
+
+
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+funcion para Habilita campos BiopEndocer
+
+*/
+
+function  habilitaCamposBiopEndocer(miCampo){
+
+
+    //el dato no es vacio y está dentro del rango de 1  y 2
+        //HABILITAMOS Y DESHABILITAMOS CAMPOS SEGÚN SIVIGILA ESCRITORIO
+    
+ 
+        var miResultadoEndocer = document.getElementById('RES_B_ADEN');
+        var miResultadoHist = document.getElementById('RES_B_HIST');
+
+    
+        //validamos el valor, si es uno (1=si) habilitamos RES_B_ADEN y RES_B_HIST
+        //validamos el valor, si es dos (2=no) inhabilitamos RES_B_ADEN y RES_B_HIST
+        if(miCampo.value  ==1){
+           //habilitamos RES_B_ADEN y RES_B_HIST
+           miResultadoEndocer.disabled=false;   
+           miResultadoHist.disabled=false; 
+    
+        }
+        else if(miCampo.value  ==2){
+          //deshabilitamos RES_B_ADEN y RES_B_HIST
+          miResultadoEndocer.disabled=true;
+          miResultadoHist.disabled=false; 
+           
+        }
+
+    
+    
+    }//fin funcion  habilitaCamposBiopEndocer
+
+
+
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA RES_B_ADEN
+
+*/
+
+
+function validaAdenocarcinoma(){
+
+    var miResBAden = document.getElementById('RES_B_ADEN');
+    var miTexto = "1=Positivo.\n2=Negativo.";
+
+    //validamos campo vacio
+    validaVacio(miResBAden,miTexto);
+
+    //validamos valor entre 1 y 2
+    valida_1_2(miResBAden,miTexto);
+
+
+}
+
 
 
 
