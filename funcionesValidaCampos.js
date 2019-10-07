@@ -610,14 +610,14 @@ function validaSegTratI(){
     //por eso no es necesario el siguiente if, pues así no se digiten datos válidos, los campos estarán deshabilitados
     habilitaCamposSegTratI(miValidaSegTratI);
 
-    /*
+    
         //si ambas validaciones retornan cero significa que los datos ingresados son validos
         if(miValidaVacio==0 && miValidaValor==0){
             //invocamos la función para habilitar los campos de acuerdo a la seleccion
                     habilitaCamposSegTratI(miValidaSegTratI);
                 
                 }//fin if
-*/
+
 
 
 }
@@ -645,30 +645,33 @@ function  habilitaCamposSegTratI(miCampo){
         var miHormonoter = document.getElementById('hormonoter');
         var miCuidPalia = document.getElementById('cuid_palia');
         var miInmunotera = document.getElementById('inmunotera');
+        var miFechaSegTr = document.getElementById('FCH_SEG_TR');
 
     
         //validamos el valor, si es uno (1=si) habilitamos los campos anteriores
         //validamos el valor, si es dos (2=no) inhabilitamos los campos anteriores
         if(miCampo.value  ==1){
            //habilitamos 
-           miResultadoEndocer.disabled=false;   
+           
            miRadioterapia.disabled=false;
            miQuirurgico.disabled=false;
            miQuimiotera.disabled=false;
            miHormonoter.disabled=false;
            miCuidPalia.disabled=false;
            miInmunotera.disabled=false;
+           miFechaSegTr.disabled=false;
     
         }
         else{
           //deshabilitamos de lo contrario. No tenemos que validar el 2, porque viene de una verificar unos datos validos
-          miResultadoEndocer.disabled=true;   
+         
           miRadioterapia.disabled=true;
           miQuirurgico.disabled=true;
           miQuimiotera.disabled=true;
           miHormonoter.disabled=true;
           miCuidPalia.disabled=true;
           miInmunotera.disabled=true;
+          miFechaSegTr.disabled=true;
            
         }
 
@@ -677,6 +680,158 @@ function  habilitaCamposSegTratI(miCampo){
     }//fin funcion  habilitaCamposSegTratI
 
 
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA radioterap
+
+*/
+function validaRadioterap(){
+    var miRadioterap = document.getElementById('radioterap');
+    var miTexto = "1=Si.\n2=No.";
+
+    //validamos campo vacio
+    validaVacio(miRadioterap,miTexto);
+
+    //validamos valor entre si y no
+    valida_si_no(miRadioterap);
+
+}
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA quirurgico
+
+*/
+function validaQuirurgico(){
+    var miQuirurgico = document.getElementById('quirurgico');
+    var miTexto = "1=Si.\n2=No.";
+
+    //validamos campo vacio
+    validaVacio(miQuirurgico,miTexto);
+
+    //validamos valor entre si y no
+    valida_si_no(miQuirurgico);
+
+}
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA quimiotera
+
+*/
+function validaQuimiotera(){
+    var miQuimiotera = document.getElementById('quimiotera');
+    var miTexto = "1=Si.\n2=No.";
+
+    //validamos campo vacio
+    validaVacio(miQuimiotera,miTexto);
+
+    //validamos valor entre si y no
+    valida_si_no(miQuimiotera);
+
+}
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA hormonoter
+
+*/
+function validaHormonoter(){
+    var miHormonoter = document.getElementById('hormonoter');
+    var miTexto = "1=Si.\n2=No.";
+
+    //validamos campo vacio
+    validaVacio(miHormonoter,miTexto);
+
+    //validamos valor entre si y no
+    valida_si_no(miHormonoter);
+
+}
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA hormonoter
+
+*/
+function validaHormonoter(){
+    var miHormonoter = document.getElementById('hormonoter');
+    var miTexto = "1=Si.\n2=No.";
+
+    //validamos campo vacio
+    validaVacio(miHormonoter,miTexto);
+
+    //validamos valor entre si y no
+    valida_si_no(miHormonoter);
+
+}
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA cuid_palia
+
+*/
+function validaCuidPalia(){
+    var miCuidPalia = document.getElementById('cuid_palia');
+    var miTexto = "1=Si.\n2=No.";
+
+    //validamos campo vacio
+    validaVacio(miCuidPalia,miTexto);
+
+    //validamos valor entre si y no
+    valida_si_no(miCuidPalia);
+
+}
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA inmunotera
+
+*/
+function validaInmunotera(){
+    var miInmunotera = document.getElementById('inmunotera');
+    var miTexto = "1=Si.\n2=No.";
+
+    //validamos campo vacio
+    validaVacio(miInmunotera,miTexto);
+
+    //validamos valor entre si y no
+    valida_si_no(miInmunotera);
+
+}
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA FCH_SEG_TR
+
+*/
+function validaFCH_SEG_TR(){
+
+    var miFCH_SEG_TR = document.getElementById('FCH_SEG_TR');
+    validaFechaSuperior(miFCH_SEG_TR);
+
+  }//fin validFechaExam
+
+
+
+/*
 
 
 
