@@ -993,7 +993,7 @@ generaFooter();
 /* función que genera el footer dinamicamente*/
 function generaFooter(){
     var newFooter= document.createElement("div"); 
-    newFooter.setAttribute('class', 'd-sm-flex ');
+    newFooter.setAttribute('class', 'd-sm-flex justify-content-center');
 
                                     // añade el elemento creado y su contenido al DOM 
                                     var currentDiv = document.getElementById("div"); 
