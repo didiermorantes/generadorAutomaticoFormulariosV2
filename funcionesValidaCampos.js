@@ -1,3 +1,8 @@
+function valida1_2(){
+
+
+}
+
 /*
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -268,6 +273,28 @@ function validaFechaResEx(){
 
 
 }//fin validaFechaResEx
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA BIOP_EXOCE
+
+*/
+
+function validaBiopExocervix(){
+    var miBiopExocer = document.getElementById('BIOP_EXOCE');
+
+    if(miBiopExocer.value<0 || miBiopExocer.value>2){
+        alert('Digite un valor entre 1 y 2');
+        alert('1 Si.\n 2 No.');
+        
+        miBiopExocer.value="Diligencie Datos";
+        miBiopExocer.focus();
+    }
+
+}
 
 
 
