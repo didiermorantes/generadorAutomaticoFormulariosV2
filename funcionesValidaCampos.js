@@ -524,7 +524,7 @@ function  habilitaCamposBiopEndocer(miCampo){
         else if(miCampo.value  ==2){
           //deshabilitamos RES_B_ADEN y RES_B_HIST
           miResultadoEndocer.disabled=true;
-          miResultadoHist.disabled=false; 
+          miResultadoHist.disabled=true; 
            
         }
 
@@ -582,6 +582,101 @@ function validaResBHist(){
 
 
 }//fin validaResBHist
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+VALIDA SEG_TRAT_I
+*/
+function validaSegTratI(){
+
+
+    var miValidaSegTratI = document.getElementById('SEG_TRAT_I');
+    var miTexto = "1 Si.\n2 No.";
+    var miValidaVacio =1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+    var miValidaValor=1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+
+
+    //validamos campo vacio
+    miValidaVacio=validaVacio(miValidaSegTratI,miTexto);
+
+    //validamos valor entre 1 y 2
+    miValidaValor=valida_si_no(miValidaSegTratI);
+
+    //invocamos la función para habilitar los campos de acuerdo a la seleccion
+    //como los campos estarán deshabilitados por defecto, si el usuario no digita una opción valida, se deshabilitarán
+    //por eso no es necesario el siguiente if, pues así no se digiten datos válidos, los campos estarán deshabilitados
+    habilitaCamposSegTratI(miValidaSegTratI);
+
+    /*
+        //si ambas validaciones retornan cero significa que los datos ingresados son validos
+        if(miValidaVacio==0 && miValidaValor==0){
+            //invocamos la función para habilitar los campos de acuerdo a la seleccion
+                    habilitaCamposSegTratI(miValidaSegTratI);
+                
+                }//fin if
+*/
+
+
+}
+
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+funcion para Habilita campos SegTratI
+
+*/
+
+function  habilitaCamposSegTratI(miCampo){
+
+
+    //el dato no es vacio y está dentro del rango de 1  y 2
+        //HABILITAMOS Y DESHABILITAMOS CAMPOS SEGÚN SIVIGILA ESCRITORIO
+    
+ 
+        var miRadioterapia = document.getElementById('radioterap');
+        var miQuirurgico = document.getElementById('quirurgico');
+        var miQuimiotera = document.getElementById('quimiotera');
+        var miHormonoter = document.getElementById('hormonoter');
+        var miCuidPalia = document.getElementById('cuid_palia');
+        var miInmunotera = document.getElementById('inmunotera');
+
+    
+        //validamos el valor, si es uno (1=si) habilitamos los campos anteriores
+        //validamos el valor, si es dos (2=no) inhabilitamos los campos anteriores
+        if(miCampo.value  ==1){
+           //habilitamos 
+           miResultadoEndocer.disabled=false;   
+           miRadioterapia.disabled=false;
+           miQuirurgico.disabled=false;
+           miQuimiotera.disabled=false;
+           miHormonoter.disabled=false;
+           miCuidPalia.disabled=false;
+           miInmunotera.disabled=false;
+    
+        }
+        else{
+          //deshabilitamos de lo contrario. No tenemos que validar el 2, porque viene de una verificar unos datos validos
+          miResultadoEndocer.disabled=true;   
+          miRadioterapia.disabled=true;
+          miQuirurgico.disabled=true;
+          miQuimiotera.disabled=true;
+          miHormonoter.disabled=true;
+          miCuidPalia.disabled=true;
+          miInmunotera.disabled=true;
+           
+        }
+
+    
+    
+    }//fin funcion  habilitaCamposSegTratI
+
+
 
 
 
