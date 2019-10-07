@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 30-09-2019 a las 13:52:14
+-- Tiempo de generación: 07-10-2019 a las 01:09:01
 -- Versión del servidor: 10.2.27-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -4144,28 +4144,28 @@ INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `n
 (4071, 'eventos_79', '79', 7, 'NUM_IDE', 'Campo NUM_IDE', 'TEXT', b'1', '', b'0', '', '79-eventos_79', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 7);
 INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `nombre`, `descripcion`, `tipo`, `mandatorio`, `expresionRegular`, `editable`, `valorPorDefecto`, `grupo`, `ordenGrupo`, `envoltorio`, `css`, `jsEvento`, `descripcionLarga`, `vigenciaDesde`, `vigenciaHasta`, `version`, `ordenJson`) VALUES
 (4072, 'eventos_79', '79', 8, 'TIPO_CANCE', 'Tipo Cáncer', 'TEXT', b'1', '1=CA Mama, 2=CA cuello uterino, 3=Ambos', b'1', '', '79-eventos_79', 10, NULL, NULL, 'validaTipoCancer()', NULL, '2018-01-01', '2019-12-31', NULL, 8),
-(4073, 'eventos_79', '79', 9, 'FEC_PRO_CO', 'Fecha Exam', 'DATE', b'1', '', b'1', '', '1', 1, 'EXÁMEN DE CONFIRMACIÓN DIAGNÓSTICA DE CÁNCER DE MAMA', NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 9),
-(4074, 'eventos_79', '79', 10, 'FEC_RES_BI', 'Fecha Result', 'DATE', b'1', '', b'1', '', '1', 2, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 10),
-(4075, 'eventos_79', '79', 11, 'RES_BIOPS9', 'Result Biopsia', 'TEXT', b'1', '', b'1', '', '1', 3, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 11),
-(4076, 'eventos_79', '79', 12, 'GRAD_HISTO', 'Grado Histopat', 'TEXT', b'1', '', b'1', '', '1', 4, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 12),
+(4073, 'eventos_79', '79', 9, 'FEC_PRO_CO', 'Fecha Exam', 'DATE', b'1', 'dd/mm/aaaa (día/mes/año)', b'1', '', '1', 1, 'EXÁMEN DE CONFIRMACIÓN DIAGNÓSTICA DE CÁNCER DE MAMA', NULL, 'validaFechaProCo()', NULL, '2018-01-01', '2019-12-31', NULL, 9),
+(4074, 'eventos_79', '79', 10, 'FEC_RES_BI', 'Fecha Result', 'DATE', b'1', 'dd/mm/aaaa (día/mes/año)', b'1', '', '1', 2, NULL, NULL, 'validaFechaResult()', NULL, '2018-01-01', '2019-12-31', NULL, 10),
+(4075, 'eventos_79', '79', 11, 'RES_BIOPS9', 'Result Biopsia', 'TEXT', b'1', '1=Carcinoma Ductal, 2=Carcinoma Lobulillar', b'1', '', '1', 3, NULL, NULL, 'validaResultBiopsia()', NULL, '2018-01-01', '2019-12-31', NULL, 11),
+(4076, 'eventos_79', '79', 12, 'GRAD_HISTO', 'Grado Histopat', 'TEXT', b'1', '1=In Situ, 2=Infiltrante, 3=No Indicado', b'1', '', '1', 4, NULL, NULL, 'validaGradHisto()', NULL, '2018-01-01', '2019-12-31', NULL, 12),
 (4077, 'eventos_79', '79', 13, 'CLAS_CIEO', 'Campo CLAS_CIEO', 'TEXT', b'1', '', b'0', '', '79-eventos_79', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 13),
-(4078, 'eventos_79', '79', 14, 'FEC_TOMA_E', 'Fecha Toma Muestra', 'DATE', b'1', '', b'1', '', '2', 1, 'EXÁMEN DE CONFIRMACIÓN DIAGNÓSTICA DE CÁNCER DE CUELLO UTERINO', NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 14),
-(4079, 'eventos_79', '79', 15, 'FEC_RES_EX', 'Fecha Result', 'DATE', b'1', '', b'1', '', '2', 2, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 15),
-(4080, 'eventos_79', '79', 16, 'BIOP_EXOCE', 'Biop. Exocervix', 'TEXT', b'1', '', b'1', '', '2', 3, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 16),
-(4081, 'eventos_79', '79', 17, 'RES_B_EXOC', 'Resultado Exoc', 'TEXT', b'1', '', b'1', '', '2', 4, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 17),
-(4082, 'eventos_79', '79', 18, 'GRADO_HIST', 'Grado Histopat', 'TEXT', b'1', '', b'1', '', '2', 5, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 18),
-(4083, 'eventos_79', '79', 19, 'BIOP_ENDOC', 'Biop Endocervix', 'TEXT', b'1', '', b'1', '', '2', 6, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 19),
-(4084, 'eventos_79', '79', 20, 'RES_B_ADEN', 'Adenocarcinoma', 'TEXT', b'1', '', b'1', '', '2', 7, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 20),
-(4085, 'eventos_79', '79', 21, 'RES_B_HIST', 'Grado Histopat', 'TEXT', b'1', '', b'1', '', '2', 8, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 21),
+(4078, 'eventos_79', '79', 14, 'FEC_TOMA_E', 'Fecha Toma Muestra', 'DATE', b'1', 'dd/mm/aaaa (día/mes/año)', b'1', '', '2', 1, 'EXÁMEN DE CONFIRMACIÓN DIAGNÓSTICA DE CÁNCER DE CUELLO UTERINO', NULL, 'validaFechaTomaE()', NULL, '2018-01-01', '2019-12-31', NULL, 14),
+(4079, 'eventos_79', '79', 15, 'FEC_RES_EX', 'Fecha Result', 'DATE', b'1', 'dd/mm/aaaa (día/mes/año)', b'1', '', '2', 2, NULL, NULL, 'validaFechaResEx()', NULL, '2018-01-01', '2019-12-31', NULL, 15),
+(4080, 'eventos_79', '79', 16, 'BIOP_EXOCE', 'Biop. Exocervix', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '2', 3, NULL, NULL, 'validaBiopExocervix()', NULL, '2018-01-01', '2019-12-31', NULL, 16),
+(4081, 'eventos_79', '79', 17, 'RES_B_EXOC', 'Resultado Exoc', 'TEXT', b'1', '1=LEI AG, 2=Carcinoma Escamocelular', b'1', '', '2', 4, NULL, NULL, 'validaResExoc()', NULL, '2018-01-01', '2019-12-31', NULL, 17),
+(4082, 'eventos_79', '79', 18, 'GRADO_HIST', 'Grado Histopat', 'TEXT', b'1', '1=In Situ, 2=Infiltrante, 3=No Indicado', b'1', '', '2', 5, NULL, NULL, 'validaGradoHist()', NULL, '2018-01-01', '2019-12-31', NULL, 18),
+(4083, 'eventos_79', '79', 19, 'BIOP_ENDOC', 'Biop Endocervix', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '2', 6, NULL, NULL, 'validaBiopEndocervix()', NULL, '2018-01-01', '2019-12-31', NULL, 19),
+(4084, 'eventos_79', '79', 20, 'RES_B_ADEN', 'Adenocarcinoma', 'TEXT', b'1', '1=Positivo, 2=Negativo', b'1', '', '2', 7, NULL, NULL, 'validaAdenocarcinoma()', NULL, '2018-01-01', '2019-12-31', NULL, 20),
+(4085, 'eventos_79', '79', 21, 'RES_B_HIST', 'Grado Histopat', 'TEXT', b'1', '1=In Situ, 2=Infiltrante, 3=No Indicado', b'1', '', '2', 8, NULL, NULL, 'validaResBHist()', NULL, '2018-01-01', '2019-12-31', NULL, 21),
 (4086, 'eventos_79', '79', 22, 'CLA_CIE_HI', 'Campo CLA_CIE_HI', 'TEXT', b'1', '', b'0', '', '79-eventos_79', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 22),
-(4087, 'eventos_79', '79', 23, 'SEG_TRAT_I', 'Tratam Inicial', 'TEXT', b'1', '', b'1', '', '3', 1, 'SEGUIMIENTO', NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 23),
-(4088, 'eventos_79', '79', 24, 'radioterap', 'Radioterapia', 'TEXT', b'1', '', b'1', '', '3', 2, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 24),
-(4089, 'eventos_79', '79', 25, 'quirurgico', 'Quirurgico', 'TEXT', b'1', '', b'1', '', '3', 3, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 25),
-(4090, 'eventos_79', '79', 26, 'quimiotera', 'Quimioterapia', 'TEXT', b'1', '', b'1', '', '3', 4, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 26),
-(4091, 'eventos_79', '79', 27, 'hormonoter', 'Hormonoterapia', 'TEXT', b'1', '', b'1', '', '3', 5, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 27),
-(4092, 'eventos_79', '79', 28, 'cuid_palia', 'Cuidados Paliat', 'TEXT', b'1', '', b'1', '', '3', 6, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 28),
-(4093, 'eventos_79', '79', 29, 'inmunotera', 'Inmunoterapia', 'TEXT', b'1', '', b'1', '', '3', 7, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 29),
-(4094, 'eventos_79', '79', 30, 'FCH_SEG_TR', 'Fecha Inicio', 'DATE', b'1', '', b'1', '', '3', 8, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 30),
+(4087, 'eventos_79', '79', 23, 'SEG_TRAT_I', 'Tratam Inicial', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '3', 1, 'SEGUIMIENTO', NULL, 'validaSegTratI()', NULL, '2018-01-01', '2019-12-31', NULL, 23),
+(4088, 'eventos_79', '79', 24, 'radioterap', 'Radioterapia', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '3', 2, NULL, NULL, 'validaRadioterap()', NULL, '2018-01-01', '2019-12-31', NULL, 24),
+(4089, 'eventos_79', '79', 25, 'quirurgico', 'Quirurgico', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '3', 3, NULL, NULL, 'validaQuirurgico()', NULL, '2018-01-01', '2019-12-31', NULL, 25),
+(4090, 'eventos_79', '79', 26, 'quimiotera', 'Quimioterapia', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '3', 4, NULL, NULL, 'validaQuimiotera()', NULL, '2018-01-01', '2019-12-31', NULL, 26),
+(4091, 'eventos_79', '79', 27, 'hormonoter', 'Hormonoterapia', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '3', 5, NULL, NULL, 'validaHormonoter()', NULL, '2018-01-01', '2019-12-31', NULL, 27),
+(4092, 'eventos_79', '79', 28, 'cuid_palia', 'Cuidados Paliat', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '3', 6, NULL, NULL, 'validaCuidPalia()', NULL, '2018-01-01', '2019-12-31', NULL, 28),
+(4093, 'eventos_79', '79', 29, 'inmunotera', 'Inmunoterapia', 'TEXT', b'1', '1=Si, 2=No', b'1', '', '3', 7, NULL, NULL, 'validaInmunotera()', NULL, '2018-01-01', '2019-12-31', NULL, 29),
+(4094, 'eventos_79', '79', 30, 'FCH_SEG_TR', 'Fecha Inicio', 'DATE', b'1', 'dd/mm/aaaa (día/mes/año)', b'1', '', '3', 8, NULL, NULL, 'validaFCH_SEG_TR()', NULL, '2018-01-01', '2019-12-31', NULL, 30),
 (4095, 'eventos_79', '79', 31, 'AJUSTE', 'Campo AJUSTE', 'TEXT', b'1', '', b'0', '', '79-eventos_79', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 31),
 (4096, 'eventos_79', '79', 32, 'FEC_AJU', 'Campo FEC_AJU', 'DATE', b'1', '', b'0', '', '79-eventos_79', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 32),
 (4097, 'eventos_79', '79', 33, 'fechahora', 'Campo fechahora', 'DATE', b'1', '', b'0', '', '79-eventos_79', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 33),
@@ -4424,13 +4424,13 @@ INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `n
 (4350, 'eventos_83', '83', 42, 'tratamient', 'Campo tratamient', 'TEXT', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 42),
 (4351, 'eventos_83', '83', 43, 'seguimient', 'Campo seguimient', 'TEXT', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 43),
 (4352, 'eventos_83', '83', 44, 'efectivida', 'Campo efectivida', 'TEXT', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 44),
-(4353, 'eventos_83', '83', 45, 'ajuste', 'Campo ajuste', 'TEXT', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 45),
+(4353, 'eventos_83', '83', 45, 'ajuste', 'Campo ajuste', 'TEXT', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 45);
+INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `nombre`, `descripcion`, `tipo`, `mandatorio`, `expresionRegular`, `editable`, `valorPorDefecto`, `grupo`, `ordenGrupo`, `envoltorio`, `css`, `jsEvento`, `descripcionLarga`, `vigenciaDesde`, `vigenciaHasta`, `version`, `ordenJson`) VALUES
 (4354, 'eventos_83', '83', 46, 'fec_aju', 'Campo fec_aju', 'DATE', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 46),
 (4355, 'eventos_83', '83', 47, 'diag_medic', 'Campo diag_medic', 'TEXT', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 47),
 (4356, 'eventos_83', '83', 48, 'fechahora', 'Campo fechahora', 'DATE', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 48),
 (4357, 'eventos_83', '83', 49, 'semcarga', 'Campo semcarga', 'NUMBER', b'1', '', b'1', '', '83-eventos_83', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 49),
-(4358, 'eventos_84', '84', 1, 'SEMANA', 'Campo SEMANA', 'TEXT', b'1', '', b'1', '', '84-eventos_84', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 1);
-INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `nombre`, `descripcion`, `tipo`, `mandatorio`, `expresionRegular`, `editable`, `valorPorDefecto`, `grupo`, `ordenGrupo`, `envoltorio`, `css`, `jsEvento`, `descripcionLarga`, `vigenciaDesde`, `vigenciaHasta`, `version`, `ordenJson`) VALUES
+(4358, 'eventos_84', '84', 1, 'SEMANA', 'Campo SEMANA', 'TEXT', b'1', '', b'1', '', '84-eventos_84', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 1),
 (4359, 'eventos_84', '84', 2, 'ANO', 'Campo ANO', 'TEXT', b'1', '', b'1', '', '84-eventos_84', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 2),
 (4360, 'eventos_84', '84', 3, 'COD_PRE', 'Campo COD_PRE', 'TEXT', b'1', '', b'1', '', '84-eventos_84', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 3),
 (4361, 'eventos_84', '84', 4, 'COD_SUB', 'Campo COD_SUB', 'TEXT', b'1', '', b'1', '', '84-eventos_84', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 4),
@@ -4715,13 +4715,13 @@ INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `n
 (4640, 'eventos_88', '88', 48, 'n_d_c1_s_n', 'Campo n_d_c1_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 48),
 (4641, 'eventos_88', '88', 49, 'n_d_p1_s_n', 'Campo n_d_p1_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 49),
 (4642, 'eventos_88', '88', 50, 'n_c_n2_s_n', 'Campo n_c_n2_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 50),
-(4643, 'eventos_88', '88', 51, 'n_d_c2_s_n', 'Campo n_d_c2_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 51),
+(4643, 'eventos_88', '88', 51, 'n_d_c2_s_n', 'Campo n_d_c2_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 51);
+INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `nombre`, `descripcion`, `tipo`, `mandatorio`, `expresionRegular`, `editable`, `valorPorDefecto`, `grupo`, `ordenGrupo`, `envoltorio`, `css`, `jsEvento`, `descripcionLarga`, `vigenciaDesde`, `vigenciaHasta`, `version`, `ordenJson`) VALUES
 (4644, 'eventos_88', '88', 52, 'n_d_p2_s_n', 'Campo n_d_p2_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 52),
 (4645, 'eventos_88', '88', 53, 'n_c_n3_s_n', 'Campo n_c_n3_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 53),
 (4646, 'eventos_88', '88', 54, 'n_d_c3_s_n', 'Campo n_d_c3_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 54),
 (4647, 'eventos_88', '88', 55, 'n_d_p3_s_n', 'Campo n_d_p3_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 55),
-(4648, 'eventos_88', '88', 56, 'n_c_n4_s_n', 'Campo n_c_n4_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 56);
-INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `nombre`, `descripcion`, `tipo`, `mandatorio`, `expresionRegular`, `editable`, `valorPorDefecto`, `grupo`, `ordenGrupo`, `envoltorio`, `css`, `jsEvento`, `descripcionLarga`, `vigenciaDesde`, `vigenciaHasta`, `version`, `ordenJson`) VALUES
+(4648, 'eventos_88', '88', 56, 'n_c_n4_s_n', 'Campo n_c_n4_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 56),
 (4649, 'eventos_88', '88', 57, 'n_d_c4_s_n', 'Campo n_d_c4_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 57),
 (4650, 'eventos_88', '88', 58, 'n_d_p4_s_n', 'Campo n_d_p4_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 58),
 (4651, 'eventos_88', '88', 59, 'n_c_n5_s_n', 'Campo n_c_n5_s_n', 'TEXT', b'1', '', b'1', '', '88-eventos_88', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 59),
@@ -5005,14 +5005,14 @@ INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `n
 (4929, 'Brotes', NULL, 11, 'GRUPO_3', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 11),
 (4930, 'Brotes', NULL, 12, 'GRUPO_4', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 12),
 (4931, 'Brotes', NULL, 13, 'GRUPO_5', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 13),
-(4932, 'Brotes', NULL, 14, 'GRUPO_6', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 14),
+(4932, 'Brotes', NULL, 14, 'GRUPO_6', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 14);
+INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `nombre`, `descripcion`, `tipo`, `mandatorio`, `expresionRegular`, `editable`, `valorPorDefecto`, `grupo`, `ordenGrupo`, `envoltorio`, `css`, `jsEvento`, `descripcionLarga`, `vigenciaDesde`, `vigenciaHasta`, `version`, `ordenJson`) VALUES
 (4933, 'Brotes', NULL, 15, 'GRUPO_7', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 15),
 (4934, 'Brotes', NULL, 16, 'GRUPO_8', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 16),
 (4935, 'Brotes', NULL, 17, 'GRUPO_9', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 17),
 (4936, 'Brotes', NULL, 18, 'GRUPO_10', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 18),
 (4937, 'Brotes', NULL, 19, 'GRUPO_11', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 19),
-(4938, 'Brotes', NULL, 20, 'GRUPO_12', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 20);
-INSERT INTO `tablatipoevento` (`id`, `nombreTabla`, `idTablaEvento`, `orden`, `nombre`, `descripcion`, `tipo`, `mandatorio`, `expresionRegular`, `editable`, `valorPorDefecto`, `grupo`, `ordenGrupo`, `envoltorio`, `css`, `jsEvento`, `descripcionLarga`, `vigenciaDesde`, `vigenciaHasta`, `version`, `ordenJson`) VALUES
+(4938, 'Brotes', NULL, 20, 'GRUPO_12', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 20),
 (4939, 'Brotes', NULL, 21, 'GRUPO_13', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 21),
 (4940, 'Brotes', NULL, 22, 'GRUPO_14', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 22),
 (4941, 'Brotes', NULL, 23, 'GRUPO_15', NULL, NULL, b'1', NULL, b'1', NULL, '', 10, NULL, NULL, NULL, NULL, '2018-01-01', '2019-12-31', NULL, 23),
