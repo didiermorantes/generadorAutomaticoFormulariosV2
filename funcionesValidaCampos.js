@@ -560,6 +560,28 @@ function validaAdenocarcinoma(){
 }
 
 
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA RES_B_HIST
+
+*/
+
+
+
+function validaResBHist(){
+    var miResBHist = document.getElementById('RES_B_HIST');
+
+    var miTexto = "1 In Situ.\n2 Infiltrante.\n3 No Indicado.";
+
+    //validamos campo vacio
+    validaVacio(miResBHist,miTexto);
+
+    //validamos valor entre 1 y 3
+    valida_1_3(miResBHist,miTexto);
+
+
+}//fin validaResBHist
 
 
 
