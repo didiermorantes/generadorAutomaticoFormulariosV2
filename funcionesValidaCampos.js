@@ -5,10 +5,11 @@ FUNCIONES GENÉRICAS
 
 */
 
-function validaVacio(miCampo){
+function validaVacio(miCampo,miMensaje){
     
     if ( miCampo.value.length == 0 ||  miCampo.value  =='' ||  miCampo.value ==null || /^\\s+$/.test( miCampo.value )) {
         alert('Diligencie Datos.No se pueden dejar campos vacios.');
+        alert(miMensaje);
         miCampo.value='Diligencie datos Válidos';
         miCampo.focus();
         //retornamos 1 indicando que el campo estaba vacio
@@ -112,12 +113,12 @@ function validaTipoCancer(){
 
     var miTipoCancer = document.getElementById('TIPO_CANCE');
     
-    var miTexto = '1 Cáncer de Mama.\n2 Cáncer de Cuello Uterino.\n3 Ambos';
+    var miTexto = '1 Cáncer de Mama.\n2 Cáncer de Cuello Uterino.\n3 Ambos.';
 
     var miValidaVacio =1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
     var miValidaValor=1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
     //validamos campo vacio
-    miValidaVacio=validaVacio(miTipoCancer);
+    miValidaVacio=validaVacio(miTipoCancer,miTexto);
 
     //validamos valor entre 1 y 3
     miValidaValor=valida_1_3(miTipoCancer,miTexto);
@@ -206,7 +207,7 @@ function habilitaCamposTipoCancer(miCampo){
         miResBHist.disabled=false;       
 
     }
-    else if(miCampovalue  ==3){
+    else if(miCampo.value  ==3){
 
         //habilitamos campos de cáncer de mama
         miFecProCo.disabled=false;
@@ -271,7 +272,7 @@ function validaResultBiopsia(){
     var miTexto = "1 Carcinoma Ductal.\n 2 Carcinoma Lobulillar.";
 
     //validamos campo vacio
-    validaVacio(miResBiops);
+    validaVacio(miResBiops,miTexto);
 
     //validamos valor entre 1 y 2
     valida_1_2(miResBiops,miTexto);
@@ -294,7 +295,7 @@ function validaGradHisto(){
     var miTexto = "1 In Situ.\n2 Infiltrante.\n3 No Indicado.";
 
     //validamos campo vacio
-    validaVacio(miGradHisto);
+    validaVacio(miGradHisto,miTexto);
 
     //validamos valor entre 1 y 3
     valida_1_3(miGradHisto,miTexto);
@@ -349,9 +350,10 @@ VALIDA BIOP_EXOCE
 
 function validaBiopExocervix(){
     var miBiopExocer = document.getElementById('BIOP_EXOCE');
+    var miTexto = "1 Si.\n2 No.";
 
     //validamos campo vacio
-    validaVacio(miBiopExocer);
+    validaVacio(miBiopExocer,miTexto);
 
     //validamos valor entre 1 y 2
     valida_si_no(miBiopExocer);
@@ -373,7 +375,7 @@ function validaResExoc(){
     var miTexto = "1=LEI AG\n2=Carcinoma Escamocelular";
 
     //validamos campo vacio
-    validaVacio(miResExoc);
+    validaVacio(miResExoc,miTexto);
 
     //validamos valor entre 1 y 2
     valida_1_2(miResExoc,miTexto);
