@@ -86,16 +86,16 @@ function validaTipoCancer(){
     
     var miTexto = '1 Cáncer de Mama.\n2 Cáncer de Cuello Uterino.\n3 Ambos';
 
-    var validaVacio =1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
-    var validaValor=1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+    var miValidaVacio =1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+    var miValidaValor=1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
     //validamos campo vacio
-    validaVacio=validaVacio(miTipoCancer);
+    miValidaVacio=validaVacio(miTipoCancer);
 
     //validamos valor entre 1 y 3
-    validaValor=valida_1_3(miTipoCancer,miTexto);
+    miValidaValor=valida_1_3(miTipoCancer,miTexto);
 
     //si ambas validaciones retornan cero significa que los datos ingresados son validos
-    if(validaVacio==0 && validaValor==0){
+    if(miValidaVacio==0 && miValidaValor==0){
     //el dato no es vacio y está dentro del rango de 1  y 3
         //HABILITAMOS Y DESHABILITAMOS CAMPOS SEGÚN SIVIGILA ESCRITORIO
 
