@@ -1,24 +1,77 @@
-//FUNCIONES GENERICAS
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+FUNCIONES GENÉRICAS
+
+*/
 
 function validaVacio(miCampo){
     
     if ( miCampo.value.length == 0 ||  miCampo.value  =='' ||  miCampo.value ==null || /^\\s+$/.test( miCampo.value )) {
         alert('Diligencie Datos.No se pueden dejar campos vacios.');
+        miCampo.value='Diligencie datos Válidos';
         miCampo.focus();
-        miCampo.value='Diligencie datos';
+        //retornamos 1 indicando que el campo estaba vacio
+        return 1;
+        
     }//fin if
+    else{
+        //de lo contrario retornamos cero
+        return 0;
+    }
 
 }
 
-function valida_1_2(miCampo){
+function valida_si_no(miCampo){
 
     if(miCampo.value<0 || miCampo.value>2){
         alert('Digite un valor entre 1 y 2');
-        alert('1 Si.\n 2 No.');
+        alert('1 Si.\n2 No.');
         
-        miCampo.value="Diligencie Datos";
+        miCampo.value="Diligencie Datos Válidos";
         miCampo.focus();
+        //retornamos 1 indicando que los datos no estaban en el rango
+        return 1;
+    }else{
+        //De lo contrario retornamos cero
+        return 0;
     }
+}
+
+function valida_1_2(miCampo,miMensaje){
+    if(miCampo.value<0 || miCampo.value>2){
+        alert('Digite un valor entre 1 y 2');
+        alert(miMensaje);
+        
+        miCampo.value="Diligencie Datos Válidos";
+        miCampo.focus();
+                //retornamos 1 indicando que los datos no estaban en el rango
+                return 1;
+    }
+    else{
+        //De lo contrario retornamos cero
+        return 0;
+
+    }
+
+}
+
+function valida_1_2_3(miCampo,miMensaje){
+    if(miCampo.value<0 || miCampo.value>3){
+        alert('Digite un valor entre 1 y 3');
+        alert(miMensaje);
+        
+        miCampo.value="Diligencie Datos Válidos";
+        miCampo.focus();
+                        //retornamos 1 indicando que los datos no estaban en el rango
+                        return 1;
+    }
+    else{
+        //De lo contrario retornamos cero
+        return 0;
+
+    }
+
 }
 
 /*
@@ -30,22 +83,20 @@ VALIDA TIPO CÁNCER  _ CÁNCER DE MAMA Y CUELLO UTERINO
 function validaTipoCancer(){
 
     var miTipoCancer = document.getElementById('TIPO_CANCE');
-
     
-    if ( miTipoCancer.value.length == 0 ||  miTipoCancer.value  =='' ||  miTipoCancer.value ==null || /^\\s+$/.test( miTipoCancer.value )) {
-        alert('Diligencie Datos.No se pueden dejar campos vacios en tipo cáncer.');
-        miTipoCancer.focus();
-        miTipoCancer.value='Diligencie datos';
-    }//fin if
-    //convierto a entero los datos tipo texto para validacion
-    else if((parseInt(miTipoCancer.value)<1) || (parseInt(miTipoCancer.value)>3)){
-        alert('Digite un valor entre 1 y 3.');
-        alert('1 Cáncer de Mama.\n 2 Cáncer de Cuello Uterino.\n 3 Ambos');
-        miTipoCancer.focus();
-        miTipoCancer.value='Diligencie datos Válidos';
-    }//fin if
-    else{
-        //el dato no es vacio y está dentro del rango de 1  y 3
+    var miTexto = '1 Cáncer de Mama.\n2 Cáncer de Cuello Uterino.\n3 Ambos';
+
+    var validaVacio =1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+    var validaValor=1;//inicializamos las variables en 1. Su valor cambiará si se ingresan datos validos
+    //validamos campo vacio
+    validaVacio=validaVacio(miTipoCancer);
+
+    //validamos valor entre 1 y 3
+    validaValor=valida_1_3(miTipoCancer,miTexto);
+
+    //si ambas validaciones retornan cero significa que los datos ingresados son validos
+    if(validaVacio==0 && validaValor==0){
+    //el dato no es vacio y está dentro del rango de 1  y 3
         //HABILITAMOS Y DESHABILITAMOS CAMPOS SEGÚN SIVIGILA ESCRITORIO
 
         //variables cáncer cuello uterino
@@ -123,9 +174,11 @@ function validaTipoCancer(){
             miResBHist.disabled=false;  
 
              }
+    }//fin if
 
 
-    }
+
+
 }//fin validaTipoCancer
 
 
@@ -308,7 +361,7 @@ function validaBiopExocervix(){
     validaVacio(miBiopExocer);
 
     //validamos valor entre 1 y 2
-    valida_1_2(miBiopExocer);
+    valida_si_no(miBiopExocer);
 
 
 
@@ -319,10 +372,30 @@ function validaBiopExocervix(){
 /*
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+VALIDA RES_B_EXOC
+
+*/
+function validaResExoc(){
+    var miResExoc = document.getElementById('RES_B_EXOC');
+    var miTexto = "1=LEI AG\n2=Carcinoma Escamocelular";
+
+    //validamos campo vacio
+    validaVacio(miResExoc);
+
+    //validamos valor entre 1 y 2
+    valida_1_2(miResExoc,miTexto);
+
+}
+
+
+
+
+/*
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 */
-
 
 
 function poblarListaTipoCancerMenor18(){
