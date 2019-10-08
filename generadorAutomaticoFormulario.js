@@ -1,3 +1,5 @@
+/*
+
 function generaCajas() {
     //obtenemos los datos ingresados en la caja de texto
     var datoIngresado=document.getElementById("dato").value;
@@ -67,6 +69,12 @@ if(isNaN(datoIngresado) || datoIngresado==""){
 
 }
 
+
+
+*/
+
+
+
 /*
 GET CON HTTPREQUEST
 function UserAction() {
@@ -83,6 +91,7 @@ function UserAction() {
 */
 
 /* GET CON FETCH */
+/*
 function UserAction() {
     //fetch toma como argumento la ruta del recurso que quiere obtener
     // fetch('json/personas.json')     --DESCOMENTARIAR SI SE USA EL JSON PERSONAS
@@ -99,9 +108,10 @@ function UserAction() {
       alert(JSON.stringify(myJson));
     });
  }
-
+*/
 
  /* funcion que genera cajas de acuerdo al json leido */
+/*
  function leerJson(){
 var datoLeido=0;
  //fetch toma como argumento la ruta del recurso que quiere obtener
@@ -201,9 +211,11 @@ var datoLeido=0;
  }
 
 
+*/
 
  
  /* funcion que genera cajas de acuerdo a la respuesta json de la BD */
+ /*
  function leerBD(){
     var datoLeido3=0;
      //fetch toma como argumento la ruta del recurso que quiere obtener
@@ -304,10 +316,11 @@ var datoLeido=0;
     
      }
 
-
+*/
      
  
  /* funcion que genera cajas de acuerdo a la respuesta json de la BD y a la lista seleccionada*/
+ /*
  function leerBDLista(){
 
     
@@ -353,7 +366,7 @@ var datoLeido=0;
        //stringify convierte el objeto en json para ser visualizado por el alert, o si no  solo se observa object object
        alert(JSON.stringify(myJson4));
      
-       /* PROCESO PARA DETERMINAR LA TABLA DESEADA , DE ACUERDO A LA LISTA DESPLEGABLE */
+       // PROCESO PARA DETERMINAR LA TABLA DESEADA , DE ACUERDO A LA LISTA DESPLEGABLE 
                     myJsonProcesado =myJson4.registros[datoSeleccionadoLista]; 
 
                     var testigoPrimerDato=0;//variable para encontrar el primer dato que tenga el idTablaEvento
@@ -520,7 +533,7 @@ var datoLeido=0;
      }
 
 
-
+*/
   
  
  /* funcion que genera cajas de acuerdo a la respuesta json de la BD y a la lista seleccionada*/
@@ -1020,6 +1033,7 @@ function generaFooter(){
 
 
       /* funcion que genera cajas de acuerdo a la respuesta json de la BD y a la lista seleccionada*/
+      /*
  function leerBDCaja(){
 
     
@@ -1065,7 +1079,7 @@ function generaFooter(){
        //stringify convierte el objeto en json para ser visualizado por el alert, o si no  solo se observa object object
        alert(JSON.stringify(myJson4));
      
-       /* PROCESO PARA DETERMINAR LA TABLA DESEADA , DE ACUERDO A LA LISTA DESPLEGABLE */
+       // PROCESO PARA DETERMINAR LA TABLA DESEADA , DE ACUERDO A LA LISTA DESPLEGABLE 
                     myJsonProcesado =myJson4.registros[datoSeleccionadoLista]; 
 
                     var testigoPrimerDato=0;//variable para encontrar el primer dato que tenga el idTablaEvento
@@ -1233,6 +1247,12 @@ function generaFooter(){
      }
 
 
+
+
+ */  
+
+ 
+ /*
      function obtenerDatosBasicosSinAxios(){
 
 let http = new XMLHttpRequest();
@@ -1281,6 +1301,12 @@ http.send(text);
 
      }
 
+
+
+*/
+
+
+/*
      function obtenerCredencialesFetch(){
 /*
         var myBody = {
@@ -1307,6 +1333,8 @@ http.send(text);
           }
 
 */
+
+/*
 //mis cabeceras
 var myHeaders = new Headers();
 //myHeaders.set("Content-Type", "application/json");
@@ -1382,4 +1410,4 @@ var myInit = {method: 'POST',
     }) ;
      
 
-     }
+*/
